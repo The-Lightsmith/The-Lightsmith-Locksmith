@@ -1,206 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="logo - car only.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Lightsmith</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
-      color: #333;
-    }
-    
-    .accent-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 250px;
-      background: linear-gradient(-20deg, #f1f1f1 50%, transparent 50%);
-      z-index: -1;
-    }
-    header {
-      text-align: center;
-      padding: 2em 1em;
-      position: relative;
-    }
-    img.logo {
-      width: 180px;
-      max-width: 80%;
-    }
-    h1 { font-size: 2em; margin: 0.5em 0; }
-    .tagline { font-style: italic; color: #666; }
-    .button {
-      display: inline-block;
-      margin: 1em;
-      padding: 0.75em 1.5em;
-      color: #333;
-      background-color: #dddddd;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-    .button:hover {
-      background-color: #cccccc;
-      transform: scale(1.05);
-    }
-    .section {
-      padding: 2em 1em;
-      text-align: center;
-    }
-    .image-pair {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 2em;
-    }
-    .slider-wrapper {
-      position: relative;
-      width: 300px;
-      height: auto;
-    }
-    .slider-wrapper img {
-      width: 100%;
-      height: auto;
-      display: none;
-      border-radius: 6px;
-    }
-    .slider-wrapper img.active {
-      display: block;
-    }
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 0.3em 0.6em;
-      cursor: pointer;
-      font-size: 1.2em;
-      z-index: 2;
-    }
-    .arrow.left {
-      left: 10px;
-    }
-    .arrow.right {
-      right: 10px;
-    }
-    .social-icons a {
-      margin: 0 0.5em;
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .social-icons a:hover { text-decoration: underline; }
-    footer {
-      background-color: #e9ecef;
-      padding: 1em;
-      text-align: center;
-      font-size: 0.9em;
-    }
-    @media (max-width: 700px) {
-      .image-pair {
-        flex-direction: column;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lightsmith | Headlight Restoration in Caldwell, ID</title>
+  <meta name="description" content="Mobile headlight restoration serving Caldwell and the Treasure Valley. 5-year warranty, crystal-clear results, and easy online booking with The Lightsmith.">
+  <link rel="canonical" href="https://lightsmith.llc/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Lightsmith | Headlight Restoration in Caldwell, ID">
+  <meta property="og:description" content="Restore night visibility and curb appeal in under an hour. Schedule headlight restoration with The Lightsmith today.">
+  <meta property="og:url" content="https://lightsmith.llc/">
+  <meta property="og:image" content="https://lightsmith.llc/images/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Lightsmith | Headlight Restoration">
+  <meta name="twitter:description" content="Treasure Valley's trusted headlight restoration with a 5-year warranty.">
+  <meta name="twitter:image" content="https://lightsmith.llc/images/social-preview.png">
+  <!-- Populate the following once your Google Places listing is live -->
+  <meta name="google-places-api-key" content="AIzaSyDZ0jUVeHcsGYO6DEnQsG_aRgBga-5N02Y">
+  <meta name="google-places-place-id" content="">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDetailing",
+    "name": "The Lightsmith",
+    "image": "https://lightsmith.llc/logo.png",
+    "url": "https://lightsmith.llc/",
+    "telephone": "+1-208-614-3414",
+    "description": "Mobile headlight restoration serving the Treasure Valley with a five-year warranty.",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mobile Service",
+      "addressLocality": "Caldwell",
+      "addressRegion": "ID",
+      "postalCode": "83607",
+      "addressCountry": "US"
+    },
+    "areaServed": [{"@type": "Place", "name": "Treasure Valley"}],
+    "serviceType": "Headlight Restoration",
+    "sameAs": [
+      "https://www.instagram.com/the_lightsmith_restoration/",
+      "https://www.facebook.com/profile.php?id=61577956997188",
+      "https://www.tiktok.com/@the.lightsmith",
+      "https://x.com/The_Lightsmith_",
+      "https://www.youtube.com/@The_Lightsmith"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does headlight restoration cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our standard headlight restoration is $100 per vehicle and includes full UV sealing and a five-year warranty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the restoration last?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We back every restoration with a five-year satisfaction guarantee thanks to our multi-stage sanding process and ceramic UV protectant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which areas do you service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Lightsmith is a mobile service covering Caldwell, Nampa, Meridian, Boise, Kuna, Eagle, Middleton, Star, Emmett, Fruitland and surrounding Treasure Valley communities."
+        }
       }
-    }
-  </style>
-  <script>
-    function setupSliders() {
-      const sliders = document.querySelectorAll(".slider-wrapper");
-      sliders.forEach(wrapper => {
-        const images = wrapper.querySelectorAll("img");
-        let current = 0;
-        images[current].classList.add("active");
-
-        wrapper.querySelector(".left").addEventListener("click", () => {
-          images[current].classList.remove("active");
-          current = (current - 1 + images.length) % images.length;
-          images[current].classList.add("active");
-        });
-
-        wrapper.querySelector(".right").addEventListener("click", () => {
-          images[current].classList.remove("active");
-          current = (current + 1) % images.length;
-          images[current].classList.add("active");
-        });
-      });
-    }
-    document.addEventListener("DOMContentLoaded", setupSliders);
+    ]
+  }
   </script>
 </head>
 <body>
-  <div class="accent-background"></div>
-  <header>
-    <img src="logo.jpg" alt="The Lightsmith Logo" class="logo" />
-    <h1>The Lightsmith</h1>
-    <p class="tagline">Bringing headlights back to life</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-animated" aria-hidden="true">
+    <svg class="bg-shape bg-shape-1" width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="200" cy="200" rx="180" ry="120" fill="#e5e7eb" opacity="0.7">
+        <animate attributeName="rx" values="180;200;180" dur="8s" repeatCount="indefinite"></animate>
+        <animate attributeName="ry" values="120;140;120" dur="10s" repeatCount="indefinite"></animate>
+      </ellipse>
+    </svg>
+    <svg class="bg-shape bg-shape-2" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="120" fill="#d1d5db" opacity="0.5">
+        <animate attributeName="r" values="120;140;120" dur="12s" repeatCount="indefinite"></animate>
+      </circle>
+    </svg>
+  </div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav__logo-link" aria-label="The Lightsmith home">
+        <img src="logo - car only.png" alt="The Lightsmith logo" class="nav__logo" width="140" height="50">
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link nav__link--active" aria-current="page">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="reviews.html" class="nav__link">Reviews</a>
+        <a href="book.html" class="nav__link nav__link--accent">Book</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+        <img src="The Lightsmith Logo - Text only.png" alt="The Lightsmith" class="hero__logo-text" width="500" height="180">
+        <h1 class="hero__title">Headlight Restoration in the Treasure Valley</h1>
+        <p class="hero__tagline">Bringing headlights back to life</p>
+
+        <div class="hero__meta">
+          <div class="hero__rating" id="heroRating" aria-live="polite">
+            <div class="hero__stars" id="heroRatingStars" aria-hidden="true">★★★★★</div>
+            <p class="hero__rating-text"><span id="heroRatingValue">5.0</span> rating &middot; <span id="heroRatingCount">10</span> Google reviews</p>
+          </div>
+          <div class="hero__warranty">
+            <span class="hero__warranty-label">5-Year Warranty</span>
+            <p>Sealed with the Headlight Magics professional kit for long-lasting clarity.</p>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="https://forms.gle/ttyJKVvsXDUz8t1Z7" class="btn" target="_blank" rel="noopener">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            <span>Book an Appointment</span>
+        </a>
+        <a href="https://g.page/r/CWJUL5k6yNeKEAI/review" class="btn" target="_blank" rel="noopener">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <span>Leave a Google Review</span>
+        </a>
+      </div>
+
+        <ul class="quick-facts" aria-label="Service highlights">
+          <li><strong>Price:</strong> $100 per vehicle</li>
+          <li><strong>Warranty:</strong> 5-year satisfaction guarantee</li>
+          <li><strong>Note:</strong> Appointment only. We hand sand on site, so no power hookup is required.</li>
+          <li><strong>Kit:</strong> Headlight Magics system with ceramic UV sealant.</li>
+        </ul>
+    </div>
   </header>
 
-  <div class="section">
-    <a href="https://forms.gle/ttyJKVvsXDUz8t1Z7" class="button" target="_blank">📅 Book an Appointment</a>
-    <a href="https://g.page/r/CWJUL5k6yNeKEAI/review" class="button" target="_blank">⭐ Leave a Google Review</a>
-    <p><strong>Price:</strong> $100 per vehicle</p>
-    <p><strong>Warranty:</strong> 5-Year Satisfaction Guarantee</p>
-    <p><strong>Note:</strong> Appointment only. Covered area required in bad weather. Preexisting damage not covered.</p>
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+      <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+    </svg>
   </div>
 
-  <div class="section">
-    <h2>Before & After Gallery</h2>
-    <div class="image-pair">
-      <div class="slider-wrapper">
-        <button class="arrow left">&#10094;</button>
-        <img src="mustang-before.jpg" alt="Before Mustang">
-        <img src="mustang-after.jpg" alt="After Mustang">
-        <button class="arrow right">&#10095;</button>
+    <main id="main">
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="section__intro">
+        <h2 id="how-title">How It Works</h2>
+        <p class="section__lead">Four simple steps to brighter, safer night driving.</p>
       </div>
-      <div class="slider-wrapper">
-        <button class="arrow left">&#10094;</button>
-        <img src="truck-before.jpg" alt="Before Truck">
-        <img src="truck-after.jpg" alt="After Truck">
-        <button class="arrow right">&#10095;</button>
-      </div>
+      <ol class="process-steps">
+        <li>
+          <h3>1. Book in Seconds</h3>
+          <p>Choose a slot online or <a href="contact.html">request a custom time</a> and we&#8217;ll confirm within one business day.</p>
+        </li>
+        <li>
+          <h3>2. We Come to You</h3>
+          <p>We travel across the Treasure Valley. Hand sanding means no power hookup is necessary—just a safe spot to work.</p>
+        </li>
+        <li>
+          <h3>3. Restore &amp; Seal</h3>
+          <p>Multi-stage sanding removes oxidation, then the Headlight Magics UV sealant locks in clarity for years.</p>
+        </li>
+        <li>
+          <h3>4. Care &amp; Drive</h3>
+          <p>Headlights are road-ready in an hour, water-safe after two, and car-wash safe the next day.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+        <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+      </svg>
     </div>
-    <div class="image-pair">
-      <div class="slider-wrapper">
-        <button class="arrow left">&#10094;</button>
-        <img src="car1-before.jpg" alt="Before Car 1">
-        <img src="car1-after.jpg" alt="After Car 1">
-        <button class="arrow right">&#10095;</button>
+
+    <section class="section" id="gallery" aria-labelledby="gallery-title">
+      <div class="section__intro">
+        <h2 id="gallery-title">Before &amp; After</h2>
+        <p class="section__lead">Swipe through real restorations completed for local drivers.</p>
       </div>
-      <div class="slider-wrapper">
-        <button class="arrow left">&#10094;</button>
-        <img src="car2-before.jpg" alt="Before Car 2">
-        <img src="car2-after.jpg" alt="After Car 2">
-        <button class="arrow right">&#10095;</button>
+      <div class="gallery-slider-pairs">
+        <div class="slider-pair">
+          <button class="arrow left" type="button" aria-label="Previous Mustang photo">&#10094;</button>
+          <img src="mustang-before.jpg" alt="Mustang headlights before restoration" class="active" loading="lazy" decoding="async">
+          <img src="mustang-after.jpg" alt="Mustang headlights after restoration" loading="lazy" decoding="async">
+          <button class="arrow right" type="button" aria-label="Next Mustang photo">&#10095;</button>
+        </div>
+
+        <div class="slider-pair">
+          <button class="arrow left" type="button" aria-label="Previous truck photo">&#10094;</button>
+          <img src="truck-before.jpg" alt="Truck headlights before restoration" class="active" loading="lazy" decoding="async">
+          <img src="truck-after.jpg" alt="Truck headlights after restoration" loading="lazy" decoding="async">
+          <button class="arrow right" type="button" aria-label="Next truck photo">&#10095;</button>
+        </div>
+
+        <div class="slider-pair">
+          <button class="arrow left" type="button" aria-label="Previous sedan photo">&#10094;</button>
+          <img src="car1-before.jpg" alt="Sedan headlights before restoration" class="active" loading="lazy" decoding="async">
+          <img src="car1-after.jpg" alt="Sedan headlights after restoration" loading="lazy" decoding="async">
+          <button class="arrow right" type="button" aria-label="Next sedan photo">&#10095;</button>
+        </div>
+
+        <div class="slider-pair">
+          <button class="arrow left" type="button" aria-label="Previous SUV photo">&#10094;</button>
+          <img src="car2-before.jpg" alt="SUV headlights before restoration" class="active" loading="lazy" decoding="async">
+          <img src="car2-after.jpg" alt="SUV headlights after restoration" loading="lazy" decoding="async">
+          <button class="arrow right" type="button" aria-label="Next SUV photo">&#10095;</button>
+        </div>
       </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+        <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+      </svg>
     </div>
-  </div>
 
-  <div class="section social-icons">
-    <a href="https://www.instagram.com/the_lightsmith_restoration/" target="_blank">Instagram</a> |
-    <a href="https://www.facebook.com/profile.php?id=61577956997188" target="_blank">Facebook</a> |
-    <a href="https://www.tiktok.com/@the.lightsmith" target="_blank">TikTok</a>
-  </div>
+    <section class="section" id="benefits" aria-labelledby="benefits-title">
+      <div class="section__intro">
+        <h2 id="benefits-title">Why Drivers Choose The Lightsmith</h2>
+        <p class="section__lead">Professional results, transparent pricing, and service that comes to you.</p>
+      </div>
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <h3>Mobile &amp; Flexible</h3>
+          <p>We come to your driveway or shop space anywhere in the Treasure Valley, keeping your day on track.</p>
+        </article>
+        <article class="benefit-card">
+          <h3>5-Year Warranty</h3>
+          <p>Premium UV protection seals the clarity in place. If it fades before five years, we make it right.</p>
+        </article>
+        <article class="benefit-card">
+          <h3>Crystal-Clear Finish</h3>
+          <p>Multi-stage sanding and ceramic sealing eliminate haze, restore beam throw, and boost resale value.</p>
+        </article>
+        <article class="benefit-card">
+          <h3>Fast Turnaround</h3>
+          <p>Most restorations are complete in under an hour so you can get back on the road with confidence.</p>
+        </article>
+      </div>
+    </section>
 
-  <div class="section">
-    <h2>Google Reviews</h2>
-    <p>We’d love your feedback! Click below to read or leave a review on Google:</p>
-    <a href="https://g.co/kgs/gxGc6c5" target="_blank" class="button">⭐ Read or Leave a Google Review</a>
-  </div>
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+        <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+      </svg>
+    </div>
 
-  <footer class="section">
-    Contact: 208-614-3414 | <a href="mailto:jack@lightsmith.llc">jack@lightsmith.llc</a><br/>
-    &copy; 2025 The Lightsmith LLC
-  </footer>
+    <section class="section" id="homeTestimonials" aria-labelledby="home-testimonials-title">
+      <div class="section__intro">
+        <h2 id="home-testimonials-title">Recent Praise</h2>
+        <p class="section__lead">A quick snapshot of what local drivers are saying right after their appointment.</p>
+      </div>
+      <div class="testimonial-strip" id="homeTestimonialsList" aria-live="polite">
+        <p class="muted testimonial-loading">Loading local reviews&hellip;</p>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+        <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+      </svg>
+    </div>
+
+    <section class="section" id="service-area" aria-labelledby="service-area-title">
+      <div class="section__intro">
+        <h2 id="service-area-title">Service Area</h2>
+        <p class="section__lead">Mobile headlight restoration throughout Caldwell and the broader Treasure Valley.</p>
+      </div>
+      <ul class="service-area-grid">
+        <li>Caldwell</li>
+        <li>Nampa</li>
+        <li>Meridian</li>
+        <li>Boise</li>
+        <li>Kuna</li>
+        <li>Eagle</li>
+        <li>Middleton</li>
+        <li>Star</li>
+        <li>Emmett</li>
+        <li>Fruitland</li>
+      </ul>
+      <p class="service-area-note">Need headlight restoration outside these cities? <a href="contact.html">Send a quick note</a> and we&#8217;ll see if we can help.</p>
+      <div class="service-area-map">
+        <div class="service-area-map__inner">
+          <h3>We come to you</h3>
+          <p>Typical travel radius: 35 miles from Caldwell. Reach out for longer trips &mdash; we&#8217;ll make it work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section__intro">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+        <p class="section__lead">Quick answers to the questions drivers ask before booking.</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>What does the service cost?</summary>
+          <p>Our full restoration is $100 per vehicle. That includes sanding, polishing, the Headlight Magics UV sealant, and a five-year satisfaction guarantee.</p>
+        </details>
+        <details>
+          <summary>How soon can I drive after the appointment?</summary>
+          <p>You can drive immediately. Avoid water for the first hour and skip the car wash for 24 hours to let the sealant fully cure.</p>
+        </details>
+        <details>
+          <summary>How should I care for the headlights afterward?</summary>
+          <p>Use touch-free or gentle hand washes and avoid harsh abrasives. We&#8217;ve written a short <a href="care.html">care guide</a> with all the tips.</p>
+        </details>
+        <details>
+          <summary>Do you travel outside the Treasure Valley?</summary>
+          <p>Yes! We routinely serve Caldwell, Nampa, Meridian, Boise, Eagle, Star, Middleton, Kuna, Fruitland, Emmett, and surrounding communities. Message us for longer trips.</p>
+        </details>
+      </div>
+      <p class="service-area-note" style="margin-top:1.2rem;">Still wondering about something else? <a href="contact.html">Reach out</a> and we&#8217;ll respond the same day.</p>
+    </section>
+
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+        <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+      </svg>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(function(response){ return response.text(); })
+      .then(function(html){ document.getElementById('site-footer').innerHTML = html; })
+      .catch(function(error){ console.error(error); });
+  </script>
+
+  <script>
+    (function(){
+      const container = document.getElementById('homeTestimonialsList');
+      if (!container) return;
+
+      const fallback = [
+        {
+          name: 'Aaron M.',
+          text: 'Phenomenal work! Lights look brand new and Jack was right on time.',
+          rating: 5
+        },
+        {
+          name: 'Katie S.',
+          text: 'Booking was easy, the results were incredible, and the five year warranty is a bonus.',
+          rating: 5
+        },
+        {
+          name: 'Luis R.',
+          text: 'Night visibility improved immediately. Highly recommend The Lightsmith.',
+          rating: 5
+        }
+      ];
+
+      const keyMeta = document.querySelector('meta[name="google-places-api-key"]');
+      const placeMeta = document.querySelector('meta[name="google-places-place-id"]');
+
+      const apiKey = keyMeta ? keyMeta.content.trim() : '';
+      const placeId = placeMeta ? placeMeta.content.trim() : '';
+
+      const render = (reviews) => {
+        if (!reviews.length) {
+          container.innerHTML = '<p class="muted">Reviews are loading soon. Check back in a moment.</p>';
+          return;
+        }
+        container.innerHTML = reviews.slice(0, 3).map(function(review){
+          return '<article class="testimonial-card">' +
+            '<blockquote>' + review.text + '</blockquote>' +
+            '<footer>' + review.name + '</footer>' +
+          '</article>';
+        }).join('');
+      };
+
+      async function fetchTopReviews() {
+        if (!apiKey || !placeId) {
+          render(fallback);
+          return;
+        }
+        try {
+          const fieldMask = ['reviews.authorAttribution','reviews.rating','reviews.text','reviews.publishTime','reviews.createTime'].join(',');
+          const endpoint = 'https://places.googleapis.com/v1/places/' + encodeURIComponent(placeId);
+          const response = await fetch(endpoint, {
+            headers: {
+              'X-Goog-Api-Key': apiKey,
+              'X-Goog-FieldMask': fieldMask
+            }
+          });
+          if (!response.ok) throw new Error('Places API error ' + response.status);
+          const data = await response.json();
+          const list = Array.isArray(data.reviews) ? data.reviews : [];
+          const prepared = list
+            .filter(function(review){ return (review.rating || 0) >= 4 && review.text; })
+            .map(function(review){
+              const name = review.authorAttribution && review.authorAttribution.displayName ? review.authorAttribution.displayName : 'Google user';
+              const text = review.text && (review.text.text || review.text) ? review.text.text || review.text : '';
+              return { name: name, text: text, rating: review.rating || 0 };
+            });
+          render(prepared.length ? prepared : fallback);
+        } catch (error) {
+          console.warn('Unable to fetch reviews for homepage testimonials:', error.message || error);
+          render(fallback);
+        }
+      }
+
+      fetchTopReviews();
+    })();
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.slider-pair').forEach(function(pair) {
+        const images = pair.querySelectorAll('img');
+        let index = 0;
+        function showImage(i) {
+          images.forEach(function(img, position) {
+            img.classList.toggle('active', position === i);
+          });
+        }
+        pair.querySelector('.arrow.left').addEventListener('click', function() {
+          index = (index - 1 + images.length) % images.length;
+          showImage(index);
+        });
+        pair.querySelector('.arrow.right').addEventListener('click', function() {
+          index = (index + 1) % images.length;
+          showImage(index);
+        });
+      });
+    });
+  </script>
+  <div class="mobile-cta-bar">
+    <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
+    <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
+  </div>
 </body>
 </html>

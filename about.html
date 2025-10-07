@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About The Lightsmith | Headlight Restoration Experts</title>
+  <meta name="description" content="Learn how The Lightsmith brings cloudy headlights back to life for Treasure Valley drivers with premium restoration and a five-year warranty.">
+  <link rel="canonical" href="https://lightsmith.llc/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About The Lightsmith">
+  <meta property="og:description" content="Professional headlight restoration based in Caldwell, Idaho with mobile service and a 5-year warranty.">
+  <meta property="og:url" content="https://lightsmith.llc/about.html">
+  <meta property="og:image" content="https://lightsmith.llc/images/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About The Lightsmith">
+  <meta name="twitter:description" content="Meet the headlight restoration specialist serving the Treasure Valley.">
+  <meta name="twitter:image" content="https://lightsmith.llc/images/social-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav__logo-link" aria-label="The Lightsmith home">
+        <img src="logo - car only.png" alt="The Lightsmith logo" class="nav__logo" width="140" height="50">
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link nav__link--active" aria-current="page">About</a>
+        <a href="reviews.html" class="nav__link">Reviews</a>
+        <a href="book.html" class="nav__link nav__link--accent">Book</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+    </nav>
+    <img src="The Lightsmith Logo - Text only.png" alt="The Lightsmith" class="hero__logo-text" width="360" height="120">
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">About</li>
+      </ol>
+    </nav>
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section__intro">
+        <h1 id="about-title">About The Lightsmith</h1>
+        <p class="section__lead">Dedicated to restoring clarity, safety, and style to headlights throughout Caldwell and the Treasure Valley.</p>
+      </div>
+      <p>At <strong>The Lightsmith</strong>, we believe your headlights should shine as bright as the day your vehicle rolled off the lot. Based in <strong>Caldwell, Idaho</strong>, we specialize in premium headlight restoration that dramatically improves nighttime visibility and revitalizes the look of your car.</p>
+      <p>We follow a proven process that removes yellowing, oxidation, and scratching before sealing lenses with a durable UV protectant. Every restoration is backed by a <strong>five-year warranty</strong>, so you have confidence that the clarity will last.</p>
+      <p>Owner-operator Jack brings meticulous attention to detail and mobile convenience straight to your driveway. With honest pricing, flexible scheduling, and friendly service, The Lightsmith keeps your vehicle ready for the road ahead.</p>
+    </section>
+  </main>
+
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+      <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+    </svg>
+  </div>
+
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(function(response){ return response.text(); })
+      .then(function(html){ document.getElementById('site-footer').innerHTML = html; })
+      .catch(function(error){ console.error(error); });
+  </script>
+  <div class="mobile-cta-bar">
+    <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
+    <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
+  </div>
+</body>
+</html>

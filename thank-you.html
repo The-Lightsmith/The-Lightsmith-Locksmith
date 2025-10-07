@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | The Lightsmith</title>
+  <meta name="description" content="Thanks for reaching out to The Lightsmith. We will respond to your headlight restoration inquiry shortly.">
+  <link rel="canonical" href="https://lightsmith.llc/thank-you.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thank You | The Lightsmith">
+  <meta property="og:description" content="We received your message about headlight restoration. We'll be in touch soon.">
+  <meta property="og:url" content="https://lightsmith.llc/thank-you.html">
+  <meta property="og:image" content="https://lightsmith.llc/images/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thank You | The Lightsmith">
+  <meta name="twitter:description" content="Thanks for contacting The Lightsmith.">
+  <meta name="twitter:image" content="https://lightsmith.llc/images/social-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav__logo-link" aria-label="The Lightsmith home">
+        <img src="logo - car only.png" alt="The Lightsmith logo" class="nav__logo" width="140" height="50">
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="reviews.html" class="nav__link">Reviews</a>
+        <a href="book.html" class="nav__link nav__link--accent">Book</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li aria-current="page">Thank You</li>
+      </ol>
+    </nav>
+    <section class="section" id="thanks" aria-labelledby="thanks-title">
+      <div class="section__intro">
+        <h1 id="thanks-title">Thanks for reaching out!</h1>
+        <p class="section__lead">We received your message and will respond shortly.</p>
+      </div>
+      <div class="cta-row">
+        <a href="index.html" class="btn">
+          <i class="fa-solid fa-house" aria-hidden="true"></i>
+          <span>Back to Home</span>
+        </a>
+        <a href="reviews.html" class="btn">
+          <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+          <span>Read Reviews</span>
+        </a>
+        <a href="contact.html" class="btn">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          <span>Send Another Message</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(function(response){ return response.text(); })
+      .then(function(html){ document.getElementById('site-footer').innerHTML = html; })
+      .catch(function(error){ console.error(error); });
+  </script>
+  <div class="mobile-cta-bar">
+    <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
+    <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
+  </div>
+</body>
+</html>

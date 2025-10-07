@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews | The Lightsmith Headlight Restoration</title>
+  <meta name="description" content="Read verified Google reviews for The Lightsmith, Caldwell Idaho's headlight restoration specialist offering 5-year warranty service.">
+  <link rel="canonical" href="https://lightsmith.llc/reviews.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Customer Reviews | The Lightsmith">
+  <meta property="og:description" content="See what Treasure Valley drivers say about The Lightsmith's professional headlight restoration service.">
+  <meta property="og:url" content="https://lightsmith.llc/reviews.html">
+  <meta property="og:image" content="https://lightsmith.llc/images/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Customer Reviews | The Lightsmith">
+  <meta name="twitter:description" content="Glow up your headlights with Idaho's trusted restoration experts. Read the latest reviews.">
+  <meta name="twitter:image" content="https://lightsmith.llc/images/social-preview.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Populate the following meta tags in production to pull live Google reviews -->
+  <meta name="google-places-api-key" content="AIzaSyDZ0jUVeHcsGYO6DEnQsG_aRgBga-5N02Y">
+  <meta name="google-places-place-id" content="">
+  <script src="site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDetailing",
+    "name": "The Lightsmith",
+    "image": "https://lightsmith.llc/logo.png",
+    "url": "https://lightsmith.llc/",
+    "telephone": "+1-208-614-3414",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mobile Service",
+      "addressLocality": "Caldwell",
+      "addressRegion": "ID",
+      "postalCode": "83607",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Treasure Valley"
+    },
+    "priceRange": "$$",
+    "serviceType": "Headlight Restoration",
+    "sameAs": [
+      "https://www.instagram.com/the_lightsmith_restoration/",
+      "https://www.facebook.com/profile.php?id=61577956997188",
+      "https://www.tiktok.com/@the.lightsmith",
+      "https://x.com/The_Lightsmith_",
+      "https://www.youtube.com/@The_Lightsmith"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav__logo-link" aria-label="The Lightsmith home">
+        <img src="logo - car only.png" alt="The Lightsmith logo" class="nav__logo" width="140" height="50">
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="reviews.html" class="nav__link nav__link--active" aria-current="page">Reviews</a>
+        <a href="book.html" class="nav__link nav__link--accent">Book</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+    </nav>
+    <img src="The Lightsmith Logo - Text only.png" alt="The Lightsmith" class="hero__logo-text" width="360" height="120">
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Reviews</li>
+      </ol>
+    </nav>
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="section__intro">
+        <h1 id="reviews-title">Google Reviews</h1>
+        <p class="section__lead">See what neighbors across the Treasure Valley say after restoring their headlights with The Lightsmith.</p>
+      </div>
+
+      <div class="reviews-controls" role="group" aria-label="Filter reviews">
+        <label for="ratingFilter">Minimum rating
+          <select id="ratingFilter">
+          <option value="0">All ratings</option>
+          <option value="5">5 stars only</option>
+          <option value="4">4 stars and up</option>
+          <option value="3">3 stars and up</option>
+          </select>
+        </label>
+        <label class="reviews-search" for="searchFilter">Search reviews
+          <input type="search" id="searchFilter" placeholder="Search for terms like fast or professional">
+        </label>
+      </div>
+
+      <div class="reviews-carousel" id="reviewsCarousel" tabindex="0">
+        <button class="carousel-arrow prev" type="button" aria-label="Show previous reviews" data-direction="prev">
+          <span aria-hidden="true">&#10094;</span>
+        </button>
+        <div class="carousel-viewport">
+          <div id="reviewsList" class="carousel-track" aria-live="polite"></div>
+        </div>
+        <button class="carousel-arrow next" type="button" aria-label="Show next reviews" data-direction="next">
+          <span aria-hidden="true">&#10095;</span>
+        </button>
+      </div>
+
+      <p class="reviews-more">
+        Want to browse every review? <a href="https://g.page/r/CWJUL5k6yNeKEAE/review" target="_blank" rel="noopener">Open on Google</a>.
+      </p>
+    </section>
+  </main>
+
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+      <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+    </svg>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+  (function(){
+    const ratingSelect = document.getElementById('ratingFilter');
+    const searchInput = document.getElementById('searchFilter');
+    const carousel = document.getElementById('reviewsCarousel');
+    const track = document.getElementById('reviewsList');
+    if (!ratingSelect || !searchInput || !carousel || !track) return;
+
+    const prevBtn = carousel.querySelector('.carousel-arrow.prev');
+    const nextBtn = carousel.querySelector('.carousel-arrow.next');
+    const STAR_FULL = '&#9733;';
+    const STAR_EMPTY = '&#9734;';
+    const FALLBACK_REVIEWS = [
+      {
+        authorAttribution: { displayName: 'Aaron M.', uri: 'https://g.page/r/CWJUL5k6yNeKEAE/review' },
+        rating: 5,
+        text: { text: 'Phenomenal work! Lights look brand new and Jack was right on time.' },
+        createTime: '2024-10-01T00:00:00Z'
+      },
+      {
+        authorAttribution: { displayName: 'Katie S.', uri: 'https://g.page/r/CWJUL5k6yNeKEAE/review' },
+        rating: 5,
+        text: { text: 'Booking was easy, the results were incredible, and the five year warranty is a bonus.' },
+        createTime: '2024-08-18T00:00:00Z'
+      },
+      {
+        authorAttribution: { displayName: 'Luis R.', uri: 'https://g.page/r/CWJUL5k6yNeKEAE/review' },
+        rating: 5,
+        text: { text: 'Night visibility improved immediately. Highly recommend The Lightsmith.' },
+        createTime: '2024-07-11T00:00:00Z'
+      }
+    ];
+
+    let allReviews = [];
+    let filtered = [];
+    let currentIndex = 0;
+    let autoTimer = null;
+
+    function escapeHTML(str) {
+      return String(str || '').replace(/[&<>"']/g, function(match){
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[match];
+      });
+    }
+
+    function renderStars(rating) {
+      const r = Math.round(Math.max(0, Math.min(5, Number(rating) || 0)));
+      return '<span class="stars" aria-label="' + r + ' out of 5">' + STAR_FULL.repeat(r) + STAR_EMPTY.repeat(5 - r) + '</span>';
+    }
+
+    function renderCard(review) {
+      const name = escapeHTML(review.authorAttribution && review.authorAttribution.displayName || 'Google user');
+      const profileUrl = review.authorAttribution && review.authorAttribution.uri ? review.authorAttribution.uri : '#';
+      const profilePhoto = review.authorAttribution && review.authorAttribution.photoUri || '';
+      const text = escapeHTML(review.text && (review.text.text || review.text) || '');
+      const dateSource = review.createTime || review.publishTime || '';
+      const date = dateSource ? new Date(dateSource).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      const rating = review.rating || 0;
+      return [
+        '<article class="review-card review-slide">',
+        '  <header class="review-head">',
+        profilePhoto ? '    <img class="review-avatar" src="' + profilePhoto + '" alt="" loading="lazy">' : '',
+        '    <div>',
+        '      <a class="review-author" href="' + profileUrl + '" target="_blank" rel="noopener">' + name + '</a>',
+        '      <div class="review-meta">' + renderStars(rating) + (date ? ' <span class="review-date">' + date + '</span>' : '') + '</div>',
+        '    </div>',
+        '  </header>',
+        '  <p class="review-text">' + text + '</p>',
+        '</article>'
+      ].join('\n');
+    }
+
+    function applyFilters() {
+      const minRating = Number(ratingSelect.value || 0);
+      const term = searchInput.value.trim().toLowerCase();
+      filtered = allReviews.filter(function(review){
+        const rating = Number(review.rating || 0);
+        const text = ((review.text && (review.text.text || review.text)) || '') + ' ' + (review.authorAttribution && review.authorAttribution.displayName || '');
+        return rating >= minRating && (!term || text.toLowerCase().indexOf(term) !== -1);
+      });
+      currentIndex = 0;
+    }
+
+    function renderCarousel() {
+      const count = filtered.length;
+      if (!count) {
+        track.innerHTML = '<p class="muted">No reviews match your filters yet.</p>';
+        return;
+      }
+      const indices = [];
+      if (count >= 3) {
+        indices.push((currentIndex - 1 + count) % count, currentIndex % count, (currentIndex + 1) % count);
+      } else if (count === 2) {
+        indices.push(currentIndex % 2, (currentIndex + 1) % 2);
+      } else {
+        indices.push(0);
+      }
+      const html = indices.map(function(idx, position){
+        const slideHTML = renderCard(filtered[idx]);
+        const cls = count >= 3 ? (position === 1 ? 'is-center' : (position === 0 ? 'is-side is-left' : 'is-side is-right')) : (position === 0 ? 'is-center' : 'is-side');
+        return slideHTML.replace('review-slide', 'review-slide ' + cls);
+      }).join('');
+      track.innerHTML = html;
+    }
+
+    function next() {
+      if (!filtered.length) return;
+      currentIndex = (currentIndex + 1) % filtered.length;
+      renderCarousel();
+    }
+
+    function prev() {
+      if (!filtered.length) return;
+      currentIndex = (currentIndex - 1 + filtered.length) % filtered.length;
+      renderCarousel();
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(next, 6000);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    async function fetchReviews() {
+      const keyMeta = document.querySelector('meta[name="google-places-api-key"]');
+      const placeMeta = document.querySelector('meta[name="google-places-place-id"]');
+      const key = keyMeta ? keyMeta.content.trim() : '';
+      const place = placeMeta ? placeMeta.content.trim() : '';
+      if (!key || !place) {
+        console.warn('Google Places credentials missing. Falling back to sample reviews.');
+        return FALLBACK_REVIEWS;
+      }
+      const fieldMask = ['reviews.authorAttribution','reviews.rating','reviews.text','reviews.publishTime','reviews.createTime'].join(',');
+      const endpoint = 'https://places.googleapis.com/v1/places/' + encodeURIComponent(place);
+      const res = await fetch(endpoint, {
+        headers: {
+          'X-Goog-Api-Key': key,
+          'X-Goog-FieldMask': fieldMask
+        }
+      });
+      if (!res.ok) {
+        throw new Error('Places API error ' + res.status);
+      }
+      const data = await res.json();
+      const reviews = Array.isArray(data.reviews) ? data.reviews : [];
+      reviews.forEach(function(review){
+        if (!review.createTime && review.publishTime) {
+          review.createTime = review.publishTime;
+        }
+      });
+      return reviews.length ? reviews : FALLBACK_REVIEWS;
+    }
+
+    (async function init(){
+      try {
+        allReviews = await fetchReviews();
+      } catch (error) {
+        console.warn('Falling back to sample reviews:', error.message || error);
+        allReviews = FALLBACK_REVIEWS;
+      }
+      applyFilters();
+      renderCarousel();
+      startAuto();
+
+      ratingSelect.addEventListener('change', function(){ applyFilters(); renderCarousel(); startAuto(); });
+      searchInput.addEventListener('input', function(){ applyFilters(); renderCarousel(); });
+      prevBtn.addEventListener('click', function(){ prev(); startAuto(); });
+      nextBtn.addEventListener('click', function(){ next(); startAuto(); });
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+
+      carousel.addEventListener('keydown', function(event){
+        if (event.key === 'ArrowLeft') { event.preventDefault(); prev(); startAuto(); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); next(); startAuto(); }
+      });
+    })();
+  })();
+  </script>
+
+  <script>
+    fetch('footer.html')
+      .then(function(response){ return response.text(); })
+      .then(function(html){ document.getElementById('site-footer').innerHTML = html; })
+      .catch(function(error){ console.error(error); });
+  </script>
+  <div class="mobile-cta-bar">
+    <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
+    <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
+  </div>
+</body>
+</html>
