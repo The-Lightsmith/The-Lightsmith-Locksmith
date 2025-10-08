@@ -1,6 +1,6 @@
 /* === Visual Overhaul Additions === */
 :root {
-  --bg: #f7f8fa;
+  --bg: #9eaac2;
   --card: rgba(238, 238, 250, 0.7);
   --ink: #23272f;
   --muted: #6c757d;
@@ -407,7 +407,7 @@ body {
   min-width: 220px;
 }
 .hero__stars {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   letter-spacing: 0.2em;
   color: #f59e0b;
 }
@@ -537,19 +537,17 @@ body {
 
 /* Slider hover + image styling */
 
-/* Section divider wave */
 .section-divider {
   display: block;
   width: 100%;
-  height: 60px;
+  height: 60px;       /* spacer height */
   margin: 2.25rem 0 0;
   padding: 0;
   line-height: 0;
   z-index: 1;
   position: relative;
+  background: transparent; /* no background */
 }
-.section-divider svg path { fill: #b0c4e8 !important; }
-.section-divider { background: #d0dbf7; }
 
 /* Social Media Icon Row */
 .social-icons {
@@ -617,7 +615,7 @@ body {
 /* Logo */
 .hero__logo {
   width: 110px;
-  max-width: 30vw;
+  max-width: 40vw;
   height: auto;
   margin: 0 auto 1.2rem auto;
   display: block;
@@ -630,6 +628,8 @@ body {
   display: block;
   margin: 0.5rem auto 1.2rem auto;
 }
+.hero { padding: 1.5rem 1.5rem 2.25rem; }
+.section { padding: 1.5rem 1.5rem 2.25rem; }
 
 /* Modern nav bar */
 .nav {
@@ -684,22 +684,18 @@ body {
 .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
-.nav__logo-link {
-  display: flex;
-  align-items: center;
-  margin-right: 1.5rem;
-  padding: 0.35rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 8px 20px rgba(15,23,42,0.18);
-  position: relative;
-  isolation: isolate;
-}
 .nav__logo {
-  height: 2.2rem;
+  height: 2.2rem;        /* keep original size for layout */
   width: auto;
   display: block;
+  transform: scale(2.5); /* 2.3 ≈ makes 2.2rem → ~5rem visually */
+  transform-origin: center;
 }
+.nav__logo-link {
+  padding-left: 1rem;   /* same left spacing as .nav__link */
+  margin-right: 1.5rem; /* same gap before next item */
+}
+
 .nav__link {
   color: #fff;
   text-decoration: none;
@@ -781,6 +777,7 @@ body {
     padding: 0.7rem 1.2rem;
     max-width: min(92vw, 560px);
     flex-wrap: nowrap;
+    overflow: visible;
   }
   .nav__links {
     position: absolute;
@@ -806,14 +803,48 @@ body {
     text-align: center;
   }
   .nav__toggle {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
+   width: 2.5rem;    /* fixed button size */
+  height: 2.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  position: relative;
   }
+  .nav__toggle-bar {
+  position: absolute;         /* stack bars */
+  width: 1.5rem;              /* consistent width */
+  height: 2px;
+  background: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;   /* rotate in place */
+}
+/* default hamburger (3 bars) */
+.nav__toggle-bar:nth-child(1) {
+  transform: translateY(-7px);   /* top bar */
+}
+.nav__toggle-bar:nth-child(2) {
+  transform: translateY(0);      /* middle bar */
+}
+.nav__toggle-bar:nth-child(3) {
+  transform: translateY(7px);    /* bottom bar */
+}
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0; /* hide middle bar */
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: rotate(-45deg);
+}
   .nav__logo-link {
     margin-right: 0.6rem;
+      padding-left: 2rem; 
   }
   .nav__logo {
     height: 2rem;
@@ -821,9 +852,7 @@ body {
   body {
     padding-bottom: 90px;
   }
-  .mobile-cta-bar {
-    display: flex;
-  }
+  .mobile-cta-bar { display: flex; gap: 0.6rem; padding: 0.5rem 0.75rem; }
 }
 .nav__link:focus-visible,
 .btn:focus-visible,
@@ -848,17 +877,23 @@ body {
 }
 .cta-row .btn { margin-bottom: 0; }
 #thanks .cta-row { margin-top: 1.5rem; }
+.btn { max-width: 100%; }
+.btn span { white-space: normal; overflow-wrap: anywhere; }
 @media (max-width: 600px) {
   .cta-row {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
     align-items: stretch;
   }
   .cta-row .btn {
     width: 100%;
+    box-sizing: border-box; 
+    padding: 0.7rem 0.9rem; 
+    font-size: 0.95rem;
     max-width: 100%;
   }
 }
+
 
 /* Quick facts list cleanup */
 .quick-facts {
@@ -945,6 +980,7 @@ main { flex: 1; }
   font-size: 0.95rem;
   color: #6c757d;
 }
+.site-footer .footer-logo img { max-width: 260px; width: 100%; height: auto; }
 /* Footer responsiveness */
 @media (max-width: 700px) {
   .footer-columns {

@@ -1,19 +1,32 @@
 (function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    const nav = document.querySelector('.nav');
-    if (!nav) return;
-
+  function initNav(nav) {
     const navLinksWrap = nav.querySelector('.nav__links');
     const toggleBtn = nav.querySelector('.nav__toggle');
     const links = Array.from(nav.querySelectorAll('.nav__link'));
     if (!links.length) return;
+
+    // Determine active link based on current path
+    const current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    let active = null;
+    links.forEach((link) => {
+      const href = (link.getAttribute('href') || '').split('/').pop().toLowerCase();
+      if (!active && (href === current || (current === '' && (href === '' || href === 'index.html')))) {
+        active = link;
+      }
+    });
+    if (!active) active = links[0];
+    links.forEach((l) => {
+      const isActive = l === active;
+      l.classList.toggle('nav__link--active', isActive);
+      if (isActive) l.setAttribute('aria-current', 'page'); else l.removeAttribute('aria-current');
+    });
 
     const bubble = document.createElement('span');
     bubble.className = 'nav__bubble';
     (navLinksWrap || nav).appendChild(bubble);
     nav.classList.add('has-bubble');
 
-    let activeLink = nav.querySelector('.nav__link--active') || links[0];
+    let activeLink = active;
     let animating = false;
 
     const setBubblePosition = (el) => {
@@ -153,6 +166,39 @@
     window.addEventListener('resize', () => {
       if (animating || !activeLink) return;
       setBubblePosition(activeLink);
+    });
+  }
+
+  function loadHeaderIfNeeded() {
+    const existing = document.querySelector('.nav');
+    if (existing) return Promise.resolve(existing);
+    const placeholder = document.getElementById('site-nav');
+    if (!placeholder) return Promise.resolve(null);
+    if (window.__lightsmithHeaderLoading || window.__lightsmithHeaderLoaded) {
+      return new Promise(function(resolve){
+        var tries = 0;
+        (function waitForNav(){
+          var nav = document.querySelector('.nav');
+          if (nav || tries++ > 200) return resolve(nav || null);
+          setTimeout(waitForNav, 20);
+        })();
+      });
+    }
+    window.__lightsmithHeaderLoading = true;
+    return fetch('header.html')
+      .then((r) => r.ok ? r.text() : Promise.reject(new Error('Failed to load header')))
+      .then((html) => {
+        placeholder.innerHTML = html;
+        window.__lightsmithHeaderLoaded = true;
+        return placeholder.querySelector('.nav') || document.querySelector('.nav');
+      })
+      .catch(() => null);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    loadHeaderIfNeeded().then(function (nav) {
+      if (!nav) return;
+      initNav(nav);
     });
   });
 })();
