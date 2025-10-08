@@ -52,17 +52,40 @@
     transition: background-position 0.3s ease;
   }
 
-  /* Auto-compensate for tall / ultra-wide viewports */
+    /* Auto-compensate for tall / ultra-wide viewports */
   @media (min-width: 1400px) and (min-height: 900px) {
     body.home .header-bg-wrapper {
       --hero-image-height: calc(100vw * 0.332);
       --hero-compensation: clamp(
-        60px,
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.62),
-        320px
+        72px,
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.58),
+        310px
       );
     }
   }
+
+  /* 2K desktops (2560×1440 class) – ease the lift */
+  @media (min-width: 2000px) and (min-height: 1100px) {
+    body.home .header-bg-wrapper {
+      --hero-compensation: clamp(
+        38px,
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.42),
+        240px
+      );
+    }
+  }
+
+  /* Ultra-wide / 3K+ – lower even more */
+  @media (min-width: 2400px) and (min-height: 1200px) {
+    body.home .header-bg-wrapper {
+      --hero-compensation: clamp(
+        22px,
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.34),
+        210px
+      );
+    }
+  }
+
 
     /* Soften the lift on 1440p desktops */
   @media (min-width: 1440px) and (max-width: 1919px) and (min-height: 850px) {
