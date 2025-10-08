@@ -1,4 +1,9 @@
 <footer class="site-footer" id="contact">
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" width="100%" height="60" preserveAspectRatio="none">
+      <path d="M0,40 C320,20 1120,80 1440,40 L1440,60 L0,60 Z" fill="#b0c4e8"></path>
+    </svg>
+  </div>
   <div class="footer-columns">
     <div class="footer-col footer-spacer"></div>
 
@@ -30,7 +35,10 @@
     </div>
 
     <div class="footer-col footer-logo-copyright-col">
-      <img src="logo.png" alt="The Lightsmith Logo" class="footer-logo" loading="lazy" decoding="async" />
+      <picture class="footer-logo">
+        <source srcset="images/logo-footer-web.png" type="image/png">
+        <img src="logo.png" alt="The Lightsmith Logo" loading="lazy" decoding="async" width="600" height="411" />
+      </picture>
       <p>&copy; 2025 The Lightsmith LLC</p>
     </div>
   </div>
