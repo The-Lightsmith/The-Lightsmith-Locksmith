@@ -28,13 +28,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+  /* Header background container - index page only */
+  body.home .header-bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(22vh, 50vw, 40vh);
+    min-height: 240px;   /* keep from collapsing on short viewports */
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  body.home .header-bg-image {
+    width: 100%;
+    height: 100%;
+    background: url('bigfoot-mustang-web-header.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50% 30%; /* START HIGHER (up): 30% instead of 40/80 */
+    transition: background-position 0.3s ease, background-size 0.3s ease;
+  }
+
+  /* Stage 1: 900px → 600px (X: 50% → 45%, Y: 30% → 55%) */
+  @media (max-width: 900px) and (min-width: 600px) {
+    body.home .header-bg-image {
+      background-position:
+        calc(45% + (5% * ((100vw - 600px) / 300)))
+        calc(30% + (25% * ((900px - 100vw) / 300)));
+    }
+  }
+
+  /* Stage 2: 600px → 400px (X: 45% → 25%, Y: 55% → 70%) */
+  @media (max-width: 600px) and (min-width: 400px) {
+    body.home .header-bg-image {
+      background-position:
+        calc(25% + (20% * ((100vw - 400px) / 200)))
+        calc(55% + (15% * ((600px - 100vw) / 200)));
+    }
+  }
+
+  /* Safety clamps */
+  @media (min-width: 1200px) {
+    body.home .header-bg-image { background-position: 50% 30%; } /* high start */
+  }
+  @media (max-width: 400px) {
+    body.home .header-bg-image { background-position: 25% 70%; } /* left & lower */
+  }
+
+  /* Keep content above background */
+  body.home .site-header { position: relative; z-index: 100; }
+  body.home .hero__logo-text { position: relative; z-index: 50; }
+  body.home .hero { position: relative; z-index: 10; }
+  body.home .nav__links { z-index: 200; }
+</style>
+
   <script src="site.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "AutoDetailing",
     "name": "The Lightsmith",
-    "image": "https://lightsmith.llc/images/social-preview.png",
+    "image": "https://lightsmith.llc/logo.png",
     "url": "https://lightsmith.llc/",
     "telephone": "+1-208-614-3414",
     "description": "Mobile headlight restoration serving the Treasure Valley with a five-year warranty.",
@@ -59,7 +115,7 @@
   }
   </script>
   <script type="application/ld+json">
-  {
+  /*{
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
@@ -89,10 +145,17 @@
       }
     ]
   }
+
   </script>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
+
+
+  <!-- Fixed header background image -->
+  <div class="header-bg-wrapper" aria-hidden="true">
+    <div class="header-bg-image"></div>
+  </div>
   <div class="bg-animated" aria-hidden="true">
     <svg class="bg-shape bg-shape-1" width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="200" cy="200" rx="180" ry="120" fill="#e5e7eb" opacity="0.7">
@@ -107,9 +170,38 @@
     </svg>
   </div>
 
-  <header class="site-header" id="top">
-    <div id="site-nav" class="site-nav-placeholder"></div>
-    <img src="The Lightsmith Logo - Text only.png" alt="The Lightsmith" class="hero__logo-text" width="500" height="180">
+  <div id="site-nav" class="site-nav-placeholder"></div>
+  
+<header class="site-header" id="top">
+  
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="index.html" class="nav__logo-link" aria-label="The Lightsmith home">
+      <img src="The Lightsmith Logo - Text only - white.png" 
+           alt="The Lightsmith logo" 
+           class="nav__logo" 
+           width="140" 
+           height="50">
+    </a>
+
+    <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <span class="nav__toggle-bar"></span>
+      <span class="nav__toggle-bar"></span>
+      <span class="nav__toggle-bar"></span>
+    </button>
+
+    <div class="nav__links" id="navLinks">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="reviews.html" class="nav__link">Reviews</a>
+      <a href="book.html" class="nav__link nav__link--accent">Book</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+    </div>
+    
+  </nav>
+  
+</header>
+
+<img src="The Lightsmith Logo - Text only - white.png" alt="The Lightsmith" class="hero__logo-text" width="500" height="180">
     <div class="hero">
         
         <h1 class="hero__title">Headlight Restoration in the Treasure Valley</h1>
@@ -137,7 +229,7 @@
         </a>
       </div>
 
-        <ul class="quick-facts" aria-label="Service highlights">
+        
           <li><strong>Price:</strong> $100 per vehicle</li>
           <li><strong>Warranty:</strong> 5-year satisfaction guarantee</li>
           <li><strong>Note:</strong> Appointment only. We hand sand on site, so no power hookup is required.</li>
@@ -282,7 +374,7 @@
         </div>
       </div>
     </section>
-
+  <div class="section-divider" aria-hidden="true"></div>
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="section__intro">
         <h2 id="faq-title">Frequently Asked Questions</h2>
@@ -423,5 +515,7 @@
     <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
     <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
   </div>
+  <script defer src="nav.js"></script>
+
 </body>
 </html>

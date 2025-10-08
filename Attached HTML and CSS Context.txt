@@ -1,0 +1,233 @@
+Attached HTML and CSS Context
+
+<div class="hero">
+        <img src="The Lightsmith Logo - Text only.png" alt="The Lightsmith" class="hero__logo-text" width="500" height="180">
+        <h1 class="hero__title">Headlight Restoration in the Treasure Valley</h1>
+        <p class="hero__tagline">Bringing headlights back to life</p>
+
+        <div class="hero__meta">
+          <div class="hero__rating" id="heroRating" aria-live="polite">
+            <div class="hero__stars" id="heroRatingStars" aria-hidden="true">★★★★★</div>
+            <p class="hero__rating-text"><span id="heroRatingValue">5.0</span> rating · <span id="heroRatingCount">10</span> Google reviews</p>
+          </div>
+          <div class="hero__warranty">
+            <span class="hero__warranty-label">5-Year Warranty</span>
+            <p>Sealed with the Headlight Magics professional kit for long-lasting clarity.</p>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="https://forms.gle/ttyJKVvsXDUz8t1Z7" class="btn" target="_blank" rel="noopener">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            <span>Book an Appointment</span>
+        </a>
+        <a href="https://g.page/r/CWJUL5k6yNeKEAI/review" class="btn" target="_blank" rel="noopener">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <span>Leave a Google Review</span>
+        </a>
+      </div>
+
+        <ul class="quick-facts" aria-label="Service highlights">
+          <li><strong>Price:</strong> $100 per vehicle</li>
+          <li><strong>Warranty:</strong> 5-year satisfaction guarantee</li>
+          <li><strong>Note:</strong> Appointment only. We hand sand on site, so no power hookup is required.</li>
+          <li><strong>Kit:</strong> Headlight Magics system with ceramic UV sealant.</li>
+        </ul>
+    </div>
+
+
+/* Matched Rule from user-agent */
+div {
+  display: block;
+}
+
+/* Matched Rule from user-agent */
+address, blockquote, center, div, figure, figcaption, footer, form, header, hr, legend, listing, main, p, plaintext, pre, summary, xmp, article, aside, h1, h2, h3, h4, h5, h6, hgroup, nav, section, search, table, caption, colgroup, col, thead, tbody, tfoot, tr, td, th, dir, dd, dl, dt, menu, ol, ul, li, bdi, output, [dir="ltr" i], [dir="rtl" i], [dir="auto" i] {
+  unicode-bidi: isolate;
+}
+
+/* Matched Rule from regular */
+.hero, .section, .quick-facts, .site-footer {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass-blur);
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.35);
+  border-right-color: rgba(255, 255, 255, 0.35);
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+  border-left-color: rgba(255, 255, 255, 0.35);
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  position: relative;
+  z-index: 2;
+}
+
+/* Matched Rule from regular */
+.hero, .section, .site-footer {
+  text-align: center;
+  text-align: center;
+}
+
+/* Inherited from ancestor level 1 (user-agent) */
+article, aside, footer, header, hgroup, main, nav, search, section {
+  display: block;
+}
+
+/* Inherited from ancestor level 1 (user-agent) */
+address, blockquote, center, div, figure, figcaption, footer, form, header, hr, legend, listing, main, p, plaintext, pre, summary, xmp, article, aside, h1, h2, h3, h4, h5, h6, hgroup, nav, section, search, table, caption, colgroup, col, thead, tbody, tfoot, tr, td, th, dir, dd, dl, dt, menu, ol, ul, li, bdi, output, [dir="ltr" i], [dir="rtl" i], [dir="auto" i] {
+  unicode-bidi: isolate;
+}
+
+/* Inherited from ancestor level 2 (user-agent) */
+body {
+  display: block;
+  margin-top: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+}
+
+/* Inherited from ancestor level 2 (regular) */
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  margin: 0;
+  min-height: 100vh;
+  background-image: linear-gradient(120deg, rgb(224, 234, 252) 0%, rgb(207, 222, 243) 100%);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  background-size: 400% 400%;
+  animation-duration: 18s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: gradientBG;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+  font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+/* Inherited from ancestor level 2 (regular) */
+html, body {
+  height: 100%;
+  height: 100%;
+}
+
+/* Inherited from ancestor level 2 (regular) */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inherited from ancestor level 3 (user-agent) */
+html {
+  display: block;
+}
+
+/* Inherited from ancestor level 3 (user-agent) */
+:root {
+  view-transition-name: root;
+}
+
+/* Inherited from ancestor level 3 (regular) */
+html, body {
+  height: 100%;
+  height: 100%;
+}
+
+/* Inherited from ancestor level 3 (regular) */
+:host, :root {
+  --fa-style-family-brands: "Font Awesome 6 Brands";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+  --fa-style-family-brands: "Font Awesome 6 Brands";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+/* Inherited from ancestor level 3 (regular) */
+:host, :root {
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+}
+
+/* Inherited from ancestor level 3 (regular) */
+:host, :root {
+  --fa-style-family-classic: "Font Awesome 6 Free";
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  --fa-style-family-classic: "Font Awesome 6 Free";
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+}
+
+/* Inherited from ancestor level 3 (regular) */
+:root {
+  --bg: #f7f8fa;
+  --card: rgba(238, 238, 250, 0.7);
+  --ink: #23272f;
+  --muted: #6c757d;
+  --line: #406cc4;
+  --accent: #23272f;
+  --accent-2: #6b7280;
+  --gold: #d4af37;
+  --radius: 18px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.12);
+  --maxw: 1100px;
+  --glass-blur: blur(18px);
+  --btn-gradient: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+  --btn-hover-gradient: linear-gradient(90deg, #2563eb 0%, #1e3a8a 100%);
+  --hero-gradient: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  --bg: #f7f8fa;
+  --card: rgba(238, 238, 250, 0.7);
+  --ink: #23272f;
+  --muted: #6c757d;
+  --line: #406cc4;
+  --accent: #23272f;
+  --accent-2: #6b7280;
+  --gold: #d4af37;
+  --radius: 18px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.12);
+  --maxw: 1100px;
+  --glass-blur: blur(18px);
+  --btn-gradient: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+  --btn-hover-gradient: linear-gradient(90deg, #2563eb 0%, #1e3a8a 100%);
+  --hero-gradient: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+}
