@@ -64,16 +64,17 @@
     }
   }
 
-  /* 2K desktops (≈2560×1440) – drop to just over half-screen */
-  @media (min-width: 2000px) and (max-width: 2399px) and (min-height: 1100px) {
+  /* 2K desktops (≈2560×1440) – push image much lower */
+  @media (min-width: 2000px) and (max-width: 2799px) and (min-height: 1100px) {
     body.home .header-bg-wrapper {
       --hero-compensation: clamp(
-        -48px, /* negative lets us push lower than the baseline */
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.22),
-        140px
+        -680px,
+        calc((var(--hero-image-height) - var(--hero-height)) * -1.7),
+        -360px
       );
     }
   }
+
 
   /* Ultra-wide / 3K+ – keep easing downward */
   @media (min-width: 2400px) and (min-height: 1200px) {
