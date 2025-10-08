@@ -35,10 +35,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: clamp(15vh, 50vw, 38vh); /* desktop scaling */
+    --hero-height: clamp(15vh, 50vw, 38vh);
+    height: var(--hero-height);
     overflow: hidden;
     z-index: -1;
     pointer-events: none;
+    --hero-compensation: 0px;
   }
 
   body.home .header-bg-image {
@@ -46,38 +48,51 @@
     height: 100%;
     background: url('bigfoot-mustang-web-header.jpg') no-repeat;
     background-size: cover;
-    background-position: 50% 100%; /* desktop default: centered bottom */
+    background-position: 50% calc(100% - var(--hero-compensation));
     transition: background-position 0.3s ease;
+  }
+
+  /* Auto-compensate for tall / ultra-wide viewports */
+  @media (min-width: 1400px) and (min-height: 900px) {
+    body.home .header-bg-wrapper {
+      --hero-image-height: calc(100vw * 0.332);
+      --hero-compensation: clamp(
+        60px,
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.62),
+        320px
+      );
+    }
   }
 
   /* Stage 1: tablets / smaller laptops */
   @media (max-width: 1200px) {
     body.home .header-bg-wrapper {
       height: 38vh;
+      --hero-compensation: 0px;
     }
     body.home .header-bg-image {
-      background-position: 38% 115%; /* moderate left + down */
+      background-position: 38% 115%;
     }
   }
 
   /* Fine-tune bump at ~1180px */
   @media (max-width: 1180px) {
     body.home .header-bg-image {
-      background-position: 38% calc(115% + 25px); /* move down ~25px */
+      background-position: 38% calc(115% + 25px);
     }
   }
 
   /* Stage 2: phones landscape / midsize screens */
   @media (max-width: 800px) {
     body.home .header-bg-image {
-      background-position: 30% 130%; /* more left + down */
+      background-position: 30% 130%;
     }
   }
 
   /* Stage 3: small phones portrait */
   @media (max-width: 500px) {
     body.home .header-bg-image {
-      background-position: 22% 145%; /* even more left + further down */
+      background-position: 22% 145%;
     }
   }
 </style>
