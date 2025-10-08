@@ -29,14 +29,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
  <style>
+  /* Header background */
   body.home .header-bg-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: clamp(15vh, 50vw, 38vh);
+    height: clamp(15vh, 50vw, 38vh); /* desktop scaling */
     overflow: hidden;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
   }
 
@@ -45,28 +46,41 @@
     height: 100%;
     background: url('bigfoot-mustang-web-header.jpg') no-repeat;
     background-size: cover;
-    background-position: 50% 100%; /* anchored to bottom */
-    transition: background-position 0.3s ease, background-size 0.3s ease;
+    background-position: 50% 100%; /* desktop default: centered bottom */
+    transition: background-position 0.3s ease;
   }
 
-  /* Optional horizontal pan as width shrinks */
-  @media (max-width: 900px) and (min-width: 600px) {
+  /* Stage 1: tablets / smaller laptops */
+  @media (max-width: 1200px) {
+    body.home .header-bg-wrapper {
+      height: 38vh;
+    }
     body.home .header-bg-image {
-      background-position-x: calc(45% + (5% * ((100vw - 600px) / 300)));
+      background-position: 38% 115%; /* moderate left + down */
     }
   }
 
-  @media (max-width: 600px) and (min-width: 400px) {
+  /* Fine-tune bump at ~1180px */
+  @media (max-width: 1180px) {
     body.home .header-bg-image {
-      background-position-x: calc(25% + (20% * ((100vw - 400px) / 200)));
+      background-position: 38% calc(115% + 25px); /* move down ~25px */
     }
   }
 
-  @media (max-width: 400px) {
-    body.home .header-bg-image { background-position-x: 25%; }
+  /* Stage 2: phones landscape / midsize screens */
+  @media (max-width: 800px) {
+    body.home .header-bg-image {
+      background-position: 30% 130%; /* more left + down */
+    }
+  }
+
+  /* Stage 3: small phones portrait */
+  @media (max-width: 500px) {
+    body.home .header-bg-image {
+      background-position: 22% 145%; /* even more left + further down */
+    }
   }
 </style>
-
 
   <script src="site.js" defer></script>
   <script type="application/ld+json">
@@ -88,57 +102,7 @@
       "addressCountry": "US"
     },
     "areaServed": [{"@type": "Place", "name": "Treasure Valley"}],
-    "serviceType": "Headlight<style>
-  /* Header background container - index page only */
-  body.home .header-bg-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    /* Hits 38vh around 1180px, shrinks smoothly below */
-    height: clamp(15vh, 6.5vw + 10vh, 38vh);
-
-    overflow: hidden;
-    z-index: -1;   /* stays behind content */
-    pointer-events: none;
-  }
-
-  body.home .header-bg-image {
-    width: 100%;
-    height: 100%;
-    background: url('bigfoot-mustang-web-header.jpg') no-repeat;
-    background-size: cover;
-    background-position: 50% 100%; /* anchored to bottom */
-    transition: background-position 0.3s ease, background-size 0.3s ease;
-  }
-
-  /* Optional horizontal pan as screen shrinks */
-  @media (max-width: 900px) and (min-width: 600px) {
-    body.home .header-bg-image {
-      background-position-x: calc(45% + (5% * ((100vw - 600px) / 300)));
-    }
-  }
-
-  @media (max-width: 600px) and (min-width: 400px) {
-    body.home .header-bg-image {
-      background-position-x: calc(25% + (20% * ((100vw - 400px) / 200)));
-    }
-  }
-
-  @media (max-width: 400px) {
-    body.home .header-bg-image {
-      background-position-x: 25%;
-    }
-  }
-
-  /* Keep nav/logo/hero above the background */
-  body.home .site-header { position: relative; z-index: 100; }
-  body.home .hero__logo-text { position: relative; z-index: 50; }
-  body.home .hero { position: relative; z-index: 10; }
-  body.home .nav__links { z-index: 200; }
-</style>
- Restoration",
+    "serviceType": "Headlight Restoration",
     "sameAs": [
       "https://www.instagram.com/the_lightsmith_restoration/",
       "https://www.facebook.com/profile.php?id=61577956997188",
