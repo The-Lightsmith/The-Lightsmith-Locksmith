@@ -35,8 +35,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    --hero-height: clamp(15vh, 50vw, 38vh);
-    height: var(--hero-height);
+    --hero-height: clamp(18vh, 50vw, 46vh);
+    --hero-max-height: 52vh; /* never let it grow taller than a little over half */
+    --hero-effective-height: min(var(--hero-height), var(--hero-max-height));
+    height: var(--hero-effective-height);
+    max-height: var(--hero-max-height);
     overflow: hidden;
     z-index: -1;
     pointer-events: none;
@@ -52,57 +55,49 @@
     transition: background-position 0.3s ease;
   }
 
-  /* Auto-compensate for tall / ultra-wide viewports */
+  /* Desktop compensation: match image vs. capped hero height */
   @media (min-width: 1400px) and (min-height: 900px) {
     body.home .header-bg-wrapper {
       --hero-image-height: calc(100vw * 0.332);
       --hero-compensation: clamp(
-        64px,
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.54),
-        300px
+        240px,
+        calc((var(--hero-image-height) - var(--hero-effective-height)) * 0.68),
+        420px
       );
     }
   }
 
-  /* 2K desktops (≈2560×1440) – push image much lower */
-  @media (min-width: 2000px) and (max-width: 2799px) and (min-height: 1100px) {
+  /* 2K monitors (2560×1440 class) */
+  @media (min-width: 2000px) and (min-height: 1100px) {
     body.home .header-bg-wrapper {
+      --hero-max-height: 50vh;
+      --hero-effective-height: min(var(--hero-height), var(--hero-max-height));
       --hero-compensation: clamp(
-        -680px,
-        calc((var(--hero-image-height) - var(--hero-height)) * -1.7),
-        -360px
+        300px,
+        calc((var(--hero-image-height) - var(--hero-effective-height)) * 0.74),
+        520px
       );
     }
   }
 
-
-  /* Ultra-wide / 3K+ – keep easing downward */
-  @media (min-width: 2400px) and (min-height: 1200px) {
+  /* Ultra-wide / 3K+ */
+  @media (min-width: 2600px) and (min-height: 1200px) {
     body.home .header-bg-wrapper {
+      --hero-max-height: 48vh;
+      --hero-effective-height: min(var(--hero-height), var(--hero-max-height));
       --hero-compensation: clamp(
-        -64px,
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.16),
-        120px
+        340px,
+        calc((var(--hero-image-height) - var(--hero-effective-height)) * 0.80),
+        560px
       );
     }
   }
 
-
-
-    /* Soften the lift on 1440p desktops */
-  @media (min-width: 1440px) and (max-width: 1919px) and (min-height: 850px) {
-    body.home .header-bg-wrapper {
-      --hero-compensation: clamp(
-        -20px, /* allow a little downward nudge */
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.45),
-        180px
-      );
-    }
-  }
   /* Stage 1: tablets / smaller laptops */
   @media (max-width: 1200px) {
     body.home .header-bg-wrapper {
       height: 38vh;
+      max-height: none;
       --hero-compensation: 0px;
     }
     body.home .header-bg-image {
@@ -131,6 +126,7 @@
     }
   }
 </style>
+
 
   <script src="site.js" defer></script>
   <script type="application/ld+json">
