@@ -64,6 +64,16 @@
     }
   }
 
+    /* Soften the lift on 1440p desktops */
+  @media (min-width: 1440px) and (max-width: 1919px) and (min-height: 850px) {
+    body.home .header-bg-wrapper {
+      --hero-compensation: clamp(
+        -20px, /* allow a little downward nudge */
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.45),
+        180px
+      );
+    }
+  }
   /* Stage 1: tablets / smaller laptops */
   @media (max-width: 1200px) {
     body.home .header-bg-wrapper {
