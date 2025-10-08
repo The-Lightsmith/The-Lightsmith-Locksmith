@@ -52,39 +52,40 @@
     transition: background-position 0.3s ease;
   }
 
-    /* Auto-compensate for tall / ultra-wide viewports */
+  /* Auto-compensate for tall / ultra-wide viewports */
   @media (min-width: 1400px) and (min-height: 900px) {
     body.home .header-bg-wrapper {
       --hero-image-height: calc(100vw * 0.332);
       --hero-compensation: clamp(
-        72px,
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.58),
-        310px
+        64px,
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.54),
+        300px
       );
     }
   }
 
-  /* 2K desktops (2560×1440 class) – ease the lift */
-  @media (min-width: 2000px) and (min-height: 1100px) {
+  /* 2K desktops (≈2560×1440) – drop to just over half-screen */
+  @media (min-width: 2000px) and (max-width: 2399px) and (min-height: 1100px) {
     body.home .header-bg-wrapper {
       --hero-compensation: clamp(
-        38px,
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.42),
-        240px
+        -48px, /* negative lets us push lower than the baseline */
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.22),
+        140px
       );
     }
   }
 
-  /* Ultra-wide / 3K+ – lower even more */
+  /* Ultra-wide / 3K+ – keep easing downward */
   @media (min-width: 2400px) and (min-height: 1200px) {
     body.home .header-bg-wrapper {
       --hero-compensation: clamp(
-        22px,
-        calc((var(--hero-image-height) - var(--hero-height)) * 0.34),
-        210px
+        -64px,
+        calc((var(--hero-image-height) - var(--hero-height)) * 0.16),
+        120px
       );
     }
   }
+
 
 
     /* Soften the lift on 1440p desktops */
