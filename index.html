@@ -28,15 +28,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <style>
-  /* Header background container - index page only */
+ <style>
   body.home .header-bg-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: clamp(22vh, 50vw, 40vh);
-    min-height: 240px;   /* keep from collapsing on short viewports */
+    height: clamp(15vh, 50vw, 38vh);
     overflow: hidden;
     z-index: 0;
     pointer-events: none;
@@ -47,42 +45,28 @@
     height: 100%;
     background: url('bigfoot-mustang-web-header.jpg') no-repeat;
     background-size: cover;
-    background-position: 50% 30%; /* START HIGHER (up): 30% instead of 40/80 */
+    background-position: 50% 100%; /* anchored to bottom */
     transition: background-position 0.3s ease, background-size 0.3s ease;
   }
 
-  /* Stage 1: 900px → 600px (X: 50% → 45%, Y: 30% → 55%) */
+  /* Optional horizontal pan as width shrinks */
   @media (max-width: 900px) and (min-width: 600px) {
     body.home .header-bg-image {
-      background-position:
-        calc(45% + (5% * ((100vw - 600px) / 300)))
-        calc(30% + (25% * ((900px - 100vw) / 300)));
+      background-position-x: calc(45% + (5% * ((100vw - 600px) / 300)));
     }
   }
 
-  /* Stage 2: 600px → 400px (X: 45% → 25%, Y: 55% → 70%) */
   @media (max-width: 600px) and (min-width: 400px) {
     body.home .header-bg-image {
-      background-position:
-        calc(25% + (20% * ((100vw - 400px) / 200)))
-        calc(55% + (15% * ((600px - 100vw) / 200)));
+      background-position-x: calc(25% + (20% * ((100vw - 400px) / 200)));
     }
   }
 
-  /* Safety clamps */
-  @media (min-width: 1200px) {
-    body.home .header-bg-image { background-position: 50% 30%; } /* high start */
-  }
   @media (max-width: 400px) {
-    body.home .header-bg-image { background-position: 25% 70%; } /* left & lower */
+    body.home .header-bg-image { background-position-x: 25%; }
   }
-
-  /* Keep content above background */
-  body.home .site-header { position: relative; z-index: 100; }
-  body.home .hero__logo-text { position: relative; z-index: 50; }
-  body.home .hero { position: relative; z-index: 10; }
-  body.home .nav__links { z-index: 200; }
 </style>
+
 
   <script src="site.js" defer></script>
   <script type="application/ld+json">
@@ -104,7 +88,57 @@
       "addressCountry": "US"
     },
     "areaServed": [{"@type": "Place", "name": "Treasure Valley"}],
-    "serviceType": "Headlight Restoration",
+    "serviceType": "Headlight<style>
+  /* Header background container - index page only */
+  body.home .header-bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    /* Hits 38vh around 1180px, shrinks smoothly below */
+    height: clamp(15vh, 6.5vw + 10vh, 38vh);
+
+    overflow: hidden;
+    z-index: -1;   /* stays behind content */
+    pointer-events: none;
+  }
+
+  body.home .header-bg-image {
+    width: 100%;
+    height: 100%;
+    background: url('bigfoot-mustang-web-header.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50% 100%; /* anchored to bottom */
+    transition: background-position 0.3s ease, background-size 0.3s ease;
+  }
+
+  /* Optional horizontal pan as screen shrinks */
+  @media (max-width: 900px) and (min-width: 600px) {
+    body.home .header-bg-image {
+      background-position-x: calc(45% + (5% * ((100vw - 600px) / 300)));
+    }
+  }
+
+  @media (max-width: 600px) and (min-width: 400px) {
+    body.home .header-bg-image {
+      background-position-x: calc(25% + (20% * ((100vw - 400px) / 200)));
+    }
+  }
+
+  @media (max-width: 400px) {
+    body.home .header-bg-image {
+      background-position-x: 25%;
+    }
+  }
+
+  /* Keep nav/logo/hero above the background */
+  body.home .site-header { position: relative; z-index: 100; }
+  body.home .hero__logo-text { position: relative; z-index: 50; }
+  body.home .hero { position: relative; z-index: 10; }
+  body.home .nav__links { z-index: 200; }
+</style>
+ Restoration",
     "sameAs": [
       "https://www.instagram.com/the_lightsmith_restoration/",
       "https://www.facebook.com/profile.php?id=61577956997188",
@@ -145,17 +179,16 @@
       }
     ]
   }
-
   </script>
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
-
   <!-- Fixed header background image -->
   <div class="header-bg-wrapper" aria-hidden="true">
     <div class="header-bg-image"></div>
   </div>
+
   <div class="bg-animated" aria-hidden="true">
     <svg class="bg-shape bg-shape-1" width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="200" cy="200" rx="180" ry="120" fill="#e5e7eb" opacity="0.7">
