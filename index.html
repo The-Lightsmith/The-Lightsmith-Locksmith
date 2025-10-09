@@ -32,18 +32,16 @@
   /* Header background */
   body.home .header-bg-wrapper {
     position: fixed;
-    top: 0;
+    top: -1px; /* prevent 1px seam at the very top during resize */
     left: 0;
     width: 100%;
-    --hero-height: clamp(18vh, 50vw, 46vh);
-    --hero-max-height: 52vh; /* never let it grow taller than a little over half */
-    --hero-effective-height: min(var(--hero-height), var(--hero-max-height));
-    height: var(--hero-effective-height);
-    max-height: var(--hero-max-height);
+    /* Show the full image height based on its aspect ratio (≈0.333). */
+    height: calc(clamp(28vh, calc(100vw * 0.333), 66vh) + 1px);
+    max-height: none;
     overflow: hidden;
     z-index: -1;
     pointer-events: none;
-    --hero-compensation: 0px;
+    --hero-top: 0px;
   }
 
   body.home .header-bg-image {
@@ -51,54 +49,17 @@
     height: 100%;
     background: url('bigfoot-mustang-web-header.jpg') no-repeat;
     background-size: cover;
-    background-position: 50% calc(100% - var(--hero-compensation));
+    background-position: 50% var(--hero-top);
     transition: background-position 0.3s ease;
   }
 
-  /* Desktop compensation: match image vs. capped hero height */
-  @media (min-width: 1400px) and (min-height: 900px) {
-    body.home .header-bg-wrapper {
-      --hero-image-height: calc(100vw * 0.332);
-      --hero-compensation: clamp(
-        240px,
-        calc((var(--hero-image-height) - var(--hero-effective-height)) * 0.68),
-        420px
-      );
-    }
-  }
-
-  /* 2K monitors (2560×1440 class) */
-  @media (min-width: 2000px) and (min-height: 1100px) {
-    body.home .header-bg-wrapper {
-      --hero-max-height: 50vh;
-      --hero-effective-height: min(var(--hero-height), var(--hero-max-height));
-      --hero-compensation: clamp(
-        300px,
-        calc((var(--hero-image-height) - var(--hero-effective-height)) * 0.74),
-        520px
-      );
-    }
-  }
-
-  /* Ultra-wide / 3K+ */
-  @media (min-width: 2600px) and (min-height: 1200px) {
-    body.home .header-bg-wrapper {
-      --hero-max-height: 48vh;
-      --hero-effective-height: min(var(--hero-height), var(--hero-max-height));
-      --hero-compensation: clamp(
-        340px,
-        calc((var(--hero-image-height) - var(--hero-effective-height)) * 0.80),
-        560px
-      );
-    }
-  }
+  /* Remove legacy compensation rules (now handled dynamically) */
 
   /* Stage 1: tablets / smaller laptops */
   @media (max-width: 1200px) {
     body.home .header-bg-wrapper {
-      height: 38vh;
+      height: calc(clamp(28vh, calc(100vw * 0.333), 66vh) + 1px);
       max-height: none;
-      --hero-compensation: 0px;
     }
     body.home .header-bg-image {
       background-position: 38% 115%;
@@ -262,7 +223,7 @@
         </div>
 
         <div class="cta-row">
-          <a href="https://forms.gle/ttyJKVvsXDUz8t1Z7" class="btn" target="_blank" rel="noopener">
+          <a href="book.html" class="btn">
             <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
             <span>Book an Appointment</span>
         </a>
@@ -272,20 +233,20 @@
         </a>
       </div>
 
-        
+        <ul class="list-plain">
           <li><strong>Price:</strong> $100 per vehicle</li>
           <li><strong>Warranty:</strong> 5-year satisfaction guarantee</li>
           <li><strong>Note:</strong> Appointment only. We hand sand on site, so no power hookup is required.</li>
           <li><strong>Kit:</strong> Headlight Magics system with ceramic UV sealant.</li>
         </ul>
+        
     </div>
-  </header>
+ 
 
-<div class="section-divider" aria-hidden="true"></div>
-<div class="section-divider" aria-hidden="true"></div>
-<div class="section-divider" aria-hidden="true"></div>
 
     <main id="main">
+      
+       <div class="section-divider" aria-hidden="true"></div>
     <section class="section" id="how-it-works" aria-labelledby="how-title">
       <div class="section__intro">
         <h2 id="how-title">How It Works</h2>
@@ -559,6 +520,85 @@
     <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
   </div>
   <script defer src="nav.js"></script>
+  <script>
+    (function(){
+      const wrapper = document.querySelector('.header-bg-wrapper');
+      if (!wrapper) return;
+
+      // Source image dimensions
+      const IMG_W = 7360;
+      const IMG_H = 2450;
+      const IMG_ASPECT = IMG_H / IMG_W; // ≈ 0.3327
+
+      // Focal point within the image (0 = top, 1 = bottom)
+      // Aim near Bigfoot's head which sits in upper region.
+      const FOCAL_Y_IN_IMAGE = 0.18; // tweak 0.12–0.22 if needed
+
+      // Where inside the header the focal point should sit (0 = top, 1 = bottom)
+      const FOCAL_Y_IN_HEADER = 0.28; // keeps head visible without crowding the top
+
+      function updateTopOffset() {
+        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const wrapperHeight = wrapper.getBoundingClientRect().height;
+
+        // background-size: cover scales by width here due to wide hero
+        const imageHeight = vw * IMG_ASPECT;
+        const overflow = Math.max(0, imageHeight - wrapperHeight);
+
+        // Expose header image height and total flow height before the hero (header + logo)
+        document.documentElement.style.setProperty('--header-height', wrapperHeight.toFixed(2) + 'px');
+
+        // Flow height of the actual header element (e.g., nav) including margins
+        const siteHeader = document.querySelector('.site-header');
+        let headerFlow = 0;
+        if (siteHeader) {
+          const csH = getComputedStyle(siteHeader);
+          const rectH = siteHeader.getBoundingClientRect();
+          const mtH = parseFloat(csH.marginTop) || 0;
+          const mbH = parseFloat(csH.marginBottom) || 0;
+          headerFlow = rectH.height + mtH + mbH;
+        }
+
+        // Height of the logo block (if present) including margins
+        const logo = document.querySelector('.hero__logo-text');
+        let logoFlow = 0;
+        if (logo) {
+          const cs = getComputedStyle(logo);
+          const rect = logo.getBoundingClientRect();
+          const mt = parseFloat(cs.marginTop) || 0;
+          const mb = parseFloat(cs.marginBottom) || 0;
+          logoFlow = rect.height + mt + mb;
+        }
+
+        const beforeHero = headerFlow + logoFlow;
+        document.documentElement.style.setProperty('--flow-before-hero', beforeHero.toFixed(2) + 'px');
+
+        // Scroll-from-top so the chosen focal point aligns as desired.
+        const desiredTop = imageHeight * FOCAL_Y_IN_IMAGE - wrapperHeight * FOCAL_Y_IN_HEADER;
+        const clampedTop = Math.min(Math.max(desiredTop, 0), overflow);
+
+        wrapper.style.setProperty('--hero-top', clampedTop.toFixed(2) + 'px');
+      }
+
+      let rafId = null;
+      function onResize() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateTopOffset);
+      }
+
+      window.addEventListener('resize', onResize, { passive: true });
+      window.addEventListener('orientationchange', onResize, { passive: true });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateTopOffset, { once: true });
+      } else {
+        updateTopOffset();
+      }
+
+      // Run again after layout settles
+      setTimeout(updateTopOffset, 150);
+    })();
+  </script>
 
 </body>
 </html>
