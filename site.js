@@ -200,5 +200,49 @@
       if (!nav) return;
       initNav(nav);
     });
+
+    // === Contact Form Handler ===
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        formData.append("_secret", "bjk5342b25kjg2kj65gjk324h8");
+
+        const url = "https://script.google.com/macros/s/AKfycbyvK3AhHkcBmr_7srlx7uFIuB24rji8Pa5AKiZdTjXv3f5wrwFcWrpQ4bZAFsCz656eCA/exec";
+        const statusEl = document.getElementById("contactFormStatus");
+        if (statusEl) {
+          statusEl.classList.remove("is-hidden");
+          statusEl.style.color = "#555";
+          statusEl.textContent = "Sending...";
+        }
+
+        try {
+          const res = await fetch(url, { method: "POST", body: formData });
+          const text = await res.text();
+          let data;
+          try {
+            data = JSON.parse(text);
+          } catch {
+            throw new Error("Unexpected server response: " + text.slice(0, 100));
+          }
+
+          if (data.status === "success") {
+            window.location.href = "/thank-you.html";
+          } else {
+            if (statusEl) {
+              statusEl.textContent = "Error: " + (data.message || "Unknown error");
+              statusEl.style.color = "red";
+            }
+          }
+        } catch (err) {
+          if (statusEl) {
+            statusEl.textContent = "Submission failed: " + err.message;
+            statusEl.style.color = "red";
+          }
+        }
+      });
+    }
   });
 })();
