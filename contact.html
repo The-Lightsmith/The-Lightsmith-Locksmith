@@ -101,7 +101,7 @@
 
         <div class="form-row">
           <label for="file">Attach photos or PDFs (Under Maintenance) <span class="muted">(optional)</span></label>
-          <input id="file" name="attachments" type="file" accept="image/*,application/pdf" multiple>
+          <input id="file" name="attachments[]" type="file" accept="image/*,application/pdf" multiple>
           <p class="small-hint">Hold Ctrl (Windows) or Command (&#8984;) on Mac while clicking to select more than one file.</p>
         </div>
 
@@ -132,61 +132,7 @@
       dateInput.min = iso;
     })();
   </script>
-  <script>
-    (function(){
-      var form = document.querySelector('.contact-form');
-      if (!form) return;
-      var status = document.getElementById('contactFormStatus');
-      var submitButton = form.querySelector('button[type="submit"]');
-      var endpoint = form.getAttribute('action');
-      var redirectInput = form.querySelector('input[name="redirect"]');
-      var redirectUrl = redirectInput ? redirectInput.value : '';
 
-      function setStatus(message, isError) {
-        if (!status) return;
-        status.textContent = message || '';
-        status.classList.toggle('is-hidden', !message);
-        status.classList.toggle('is-error', Boolean(isError));
-      }
-
-      form.addEventListener('submit', function(event){
-        if (!endpoint) return;
-        event.preventDefault();
-        form.classList.add('is-submitting');
-        setStatus('Sending your message\u2026', false);
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.setAttribute('aria-busy', 'true');
-        }
-
-        var formData = new FormData(form);
-
-        fetch(endpoint, {
-          method: 'POST',
-          body: formData
-        }).then(function(response){
-          if (!response.ok) {
-            throw new Error('Bad response ' + response.status);
-          }
-          if (redirectUrl) {
-            window.location.assign(redirectUrl);
-          } else {
-            form.reset();
-            setStatus('Thanks! We received your message.', false);
-          }
-        }).catch(function(error){
-          console.error('Contact form submission failed', error);
-          setStatus('We could not send your message. Email jack@lightsmith.llc or try again.', true);
-        }).finally(function(){
-          form.classList.remove('is-submitting');
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.removeAttribute('aria-busy');
-          }
-        });
-      });
-    })();
-  </script>
   <div class="mobile-cta-bar">
     <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
     <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
