@@ -178,7 +178,7 @@
       const dateSource = review.createTime || review.publishTime || '';
       const date = dateSource ? new Date(dateSource).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '';
       const rating = review.rating || 0;
-      return [
+       return [
         '<article class="review-card review-slide">',
         '  <header class="review-head">',
         profilePhoto ? '    <img class="review-avatar" src="' + profilePhoto + '" alt="" loading="lazy">' : '',
@@ -188,6 +188,10 @@
         '    </div>',
         '  </header>',
         '  <p class="review-text">' + text + '</p>',
+        '  <div class="review-actions" aria-hidden="false">',
+        '    <button class="card-arrow card-arrow--prev" type="button" aria-label="Show previous review">&#10094;</button>',
+        '    <button class="card-arrow card-arrow--next" type="button" aria-label="Show next review">&#10095;</button>',
+        '  </div>',
         '</article>'
       ].join('\n');
     }
@@ -217,14 +221,20 @@
       } else {
         indices.push(0);
       }
-      const html = indices.map(function(idx, position){
+       const html = indices.map(function(idx, position){
         const slideHTML = renderCard(filtered[idx]);
         const cls = count >= 3 ? (position === 1 ? 'is-center' : (position === 0 ? 'is-side is-left' : 'is-side is-right')) : (position === 0 ? 'is-center' : 'is-side');
         return slideHTML.replace('review-slide', 'review-slide ' + cls);
       }).join('');
       track.innerHTML = html;
+      // Hook up internal mobile buttons after render
+      track.querySelectorAll('.card-arrow--prev').forEach(function(btn){
+        btn.addEventListener('click', function(){ prev(); startAuto(); });
+      });
+      track.querySelectorAll('.card-arrow--next').forEach(function(btn){
+        btn.addEventListener('click', function(){ next(); startAuto(); });
+      });
     }
-
     function next() {
       if (!filtered.length) return;
       currentIndex = (currentIndex + 1) % filtered.length;
