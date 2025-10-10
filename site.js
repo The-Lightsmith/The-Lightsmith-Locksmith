@@ -210,7 +210,7 @@
         const formData = new FormData(contactForm);
         formData.append("_secret", "bjk5342b25kjg2kj65gjk324h8");
 
-        const url = "https://script.google.com/macros/s/AKfycbyvK3AhHkcBmr_7srlx7uFIuB24rji8Pa5AKiZdTjXv3f5wrwFcWrpQ4bZAFsCz656eCA/exec";
+        const url = "https://script.google.com/macros/s/AKfycbzVgF7oQcxWH5bc92wHcXV-x4ysaDpHJOkXaDv9PenNOHCcnTTFcWxLvr6l_d5PsMJZmw/exec";
         const statusEl = document.getElementById("contactFormStatus");
         if (statusEl) {
           statusEl.classList.remove("is-hidden");
