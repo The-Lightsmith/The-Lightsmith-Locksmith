@@ -10,14 +10,13 @@
   <meta property="og:title" content="The Lightsmith | Headlight Restoration in Caldwell, ID">
   <meta property="og:description" content="Restore night visibility and curb appeal in under an hour. Schedule headlight restoration with The Lightsmith today.">
   <meta property="og:url" content="https://lightsmith.llc/">
-  <meta property="og:image" content="bigfoot-driving-social-preview-for-web.jpg">
+  <meta property="og:image" content="https://lightsmith.llc/images/social-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Lightsmith | Headlight Restoration">
   <meta name="twitter:description" content="Treasure Valley's trusted headlight restoration with a 5-year warranty.">
   <meta name="twitter:image" content="https://lightsmith.llc/images/social-preview.png">
-  <!-- Populate the following once your Google Places listing is live -->
-  <meta name="google-places-api-key" content="AIzaSyDZ0jUVeHcsGYO6DEnQsG_aRgBga-5N02Y">
-  <meta name="google-places-place-id" content="">
+  <meta name="google-places-api-key" content="AIzaSyAG5DGZp-zWFubrfMEO0omPgIM-M8lEcYE">
+  <meta name="google-places-place-id" content="ChIJw79roKw_kyURYlQvmTrI14o">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
@@ -48,6 +47,7 @@
     width: 100%;
     height: 100%;
     background: url('bigfoot-mustang-web-header.jpg') no-repeat;
+    background: image-set(url('bigfoot-mustang-web-header.webp') type('image/webp'), url('bigfoot-mustang-web-header.jpg') type('image/jpeg')) no-repeat;
     background-size: cover;
     background-position: 50% var(--hero-top);
     transition: background-position 0.3s ease;
@@ -120,7 +120,7 @@
   }
   </script>
   <script type="application/ld+json">
-  /*{
+  {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
@@ -129,7 +129,7 @@
         "name": "How much does headlight restoration cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our standard headlight restoration is $100 per vehicle and includes full UV sealing and a five-year warranty."
+          "text": "Our standard headlight restoration is $150 per vehicle and includes full UV sealing and a five-year warranty."
         }
       },
       {
@@ -151,6 +151,23 @@
     ]
   }
   </script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1990647455208218');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1990647455208218&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -215,7 +232,7 @@
         <div class="hero__meta">
           <div class="hero__rating" id="heroRating" aria-live="polite">
             <div class="hero__stars" id="heroRatingStars" aria-hidden="true">★★★★★</div>
-            <p class="hero__rating-text"><span id="heroRatingValue">5.0</span> rating &middot; <span id="heroRatingCount">10</span> Google reviews</p>
+            <p class="hero__rating-text"><span id="heroRatingValue">5.0</span> rating &middot; <span id="heroRatingCount">13</span> Google reviews</p>
           </div>
           <div class="hero__warranty">
             <span class="hero__warranty-label">5-Year Warranty</span>
@@ -224,7 +241,7 @@
         </div>
 
         <div class="cta-row">
-          <a href="book.html" class="btn">
+          <a href="book.html" class="btn btn--orange"> 
             <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
             <span>Book an Appointment</span>
         </a>
@@ -235,7 +252,7 @@
       </div>
 
         <ul class="list-plain">
-          <li><strong>Price:</strong> $100 per vehicle</li>
+          <li><strong>Price:</strong> $150 per vehicle</li>
           <li><strong>Warranty:</strong> 5-year satisfaction guarantee</li>
           <li><strong>Note:</strong> Appointment only. We hand sand on site, so no power hookup is required.</li>
           <li><strong>Kit:</strong> Headlight Magics system with ceramic UV sealant.</li>
@@ -284,32 +301,57 @@
       <div class="gallery-slider-pairs">
         <div class="slider-pair">
           <button class="arrow left" type="button" aria-label="Previous Mustang photo">&#10094;</button>
-          <img src="mustang-before.jpg" alt="Mustang headlights before restoration" class="active" loading="lazy" decoding="async">
-          <img src="mustang-after.jpg" alt="Mustang headlights after restoration" loading="lazy" decoding="async">
+          <picture><source srcset="mustang-before.webp" type="image/webp"><img src="mustang-before.jpg" alt="Mustang headlights before restoration" class="active" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="mustang-after.webp" type="image/webp"><img src="mustang-after.jpg" alt="Mustang headlights after restoration" loading="lazy" decoding="async"></picture>
           <button class="arrow right" type="button" aria-label="Next Mustang photo">&#10095;</button>
         </div>
 
         <div class="slider-pair">
           <button class="arrow left" type="button" aria-label="Previous truck photo">&#10094;</button>
-          <img src="truck-before.jpg" alt="Truck headlights before restoration" class="active" loading="lazy" decoding="async">
-          <img src="truck-after.jpg" alt="Truck headlights after restoration" loading="lazy" decoding="async">
+          <picture><source srcset="truck-before.webp" type="image/webp"><img src="truck-before.jpg" alt="Truck headlights before restoration" class="active" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="truck-after.webp" type="image/webp"><img src="truck-after.jpg" alt="Truck headlights after restoration" loading="lazy" decoding="async"></picture>
           <button class="arrow right" type="button" aria-label="Next truck photo">&#10095;</button>
         </div>
 
         <div class="slider-pair">
           <button class="arrow left" type="button" aria-label="Previous sedan photo">&#10094;</button>
-          <img src="car1-before.jpg" alt="Sedan headlights before restoration" class="active" loading="lazy" decoding="async">
-          <img src="car1-after.jpg" alt="Sedan headlights after restoration" loading="lazy" decoding="async">
+          <picture><source srcset="car1-before.webp" type="image/webp"><img src="car1-before.jpg" alt="Sedan headlights before restoration" class="active" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="car1-after.webp" type="image/webp"><img src="car1-after.jpg" alt="Sedan headlights after restoration" loading="lazy" decoding="async"></picture>
           <button class="arrow right" type="button" aria-label="Next sedan photo">&#10095;</button>
         </div>
 
         <div class="slider-pair">
           <button class="arrow left" type="button" aria-label="Previous SUV photo">&#10094;</button>
-          <img src="car2-before.jpg" alt="SUV headlights before restoration" class="active" loading="lazy" decoding="async">
-          <img src="car2-after.jpg" alt="SUV headlights after restoration" loading="lazy" decoding="async">
+          <picture><source srcset="car2-before.webp" type="image/webp"><img src="car2-before.jpg" alt="SUV headlights before restoration" class="active" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="car2-after.webp" type="image/webp"><img src="car2-after.jpg" alt="SUV headlights after restoration" loading="lazy" decoding="async"></picture>
           <button class="arrow right" type="button" aria-label="Next SUV photo">&#10095;</button>
         </div>
       </div>
+    </section>
+
+   <div class="section-divider" aria-hidden="true"></div>
+
+    <section class="section" id="video" aria-labelledby="video-title">
+      <div class="section__intro">
+        <h2 id="video-title">See It in Action</h2>
+        <p class="section__lead">Watch a real restoration from start to finish.</p>
+      </div>
+      <div class="reel-wrapper">
+        <iframe
+          src="https://www.instagram.com/reel/DMrkFAlMGDW/embed/"
+          width="400"
+          height="700"
+          frameborder="0"
+          scrolling="no"
+          allowtransparency="true"
+          allow="encrypted-media"
+          loading="lazy"
+          title="The Lightsmith headlight restoration reel"
+        ></iframe>
+      </div>
+      <p style="margin-top:1rem;font-size:0.9rem;color:var(--muted);">
+        <a href="https://www.instagram.com/the_lightsmith_restoration/" target="_blank" rel="noopener" style="color:var(--line);font-weight:600;">@the_lightsmith_restoration</a> on Instagram
+      </p>
     </section>
 
    <div class="section-divider" aria-hidden="true"></div>
@@ -373,10 +415,16 @@
       </ul>
       <p class="service-area-note">Need headlight restoration outside these cities? <a href="contact.html">Send a quick note</a> and we&#8217;ll see if we can help.</p>
       <div class="service-area-map">
-        <div class="service-area-map__inner">
-          <h3>We come to you</h3>
-          <p>Typical travel radius: 35 miles from Caldwell. Reach out for longer trips &mdash; we&#8217;ll make it work.</p>
-        </div>
+        <iframe
+          src="https://maps.google.com/maps?ll=43.62,-116.48&z=10&t=m&output=embed"
+          width="100%"
+          height="380"
+          style="border:0; display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="The Lightsmith service area — Treasure Valley, Idaho"
+        ></iframe>
       </div>
     </section>
   <div class="section-divider" aria-hidden="true"></div>
@@ -388,7 +436,7 @@
       <div class="faq-list">
         <details open>
           <summary>What does the service cost?</summary>
-          <p>Our full restoration is $100 per vehicle. That includes sanding, polishing, the Headlight Magics UV sealant, and a five-year satisfaction guarantee.</p>
+          <p>Our full restoration is $150 per vehicle. That includes sanding, polishing, the Headlight Magics UV sealant, and a five-year satisfaction guarantee.</p>
         </details>
         <details>
           <summary>How soon can I drive after the appointment?</summary>
@@ -466,7 +514,7 @@
           return;
         }
         try {
-          const fieldMask = ['reviews.authorAttribution','reviews.rating','reviews.text','reviews.publishTime','reviews.createTime'].join(',');
+          const fieldMask = ['reviews.authorAttribution','reviews.rating','reviews.text','reviews.publishTime'].join(',');
           const endpoint = 'https://places.googleapis.com/v1/places/' + encodeURIComponent(placeId);
           const response = await fetch(endpoint, {
             headers: {
@@ -516,10 +564,35 @@
       });
     });
   </script>
-  <div class="mobile-cta-bar">
-    <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
-    <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
-  </div>
+<script>
+(function(){
+  const keyMeta = document.querySelector('meta[name="google-places-api-key"]');
+  const placeMeta = document.querySelector('meta[name="google-places-place-id"]');
+  const key = keyMeta ? keyMeta.content.trim() : '';
+  const place = placeMeta ? placeMeta.content.trim() : '';
+  if (!key || !place) return;
+
+  fetch('https://places.googleapis.com/v1/places/' + encodeURIComponent(place), {
+    headers: {
+      'X-Goog-Api-Key': key,
+      'X-Goog-FieldMask': 'rating,userRatingCount'
+    }
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if (data.rating) {
+      const rating = data.rating.toFixed(1);
+      const count = data.userRatingCount || 0;
+      const stars = Math.round(data.rating);
+      document.getElementById('heroRatingValue').textContent = rating;
+      document.getElementById('heroRatingCount').textContent = count;
+      document.getElementById('heroRatingStars').textContent = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+      document.getElementById('heroRatingStars').setAttribute('aria-label', rating + ' out of 5 stars');
+    }
+  })
+  .catch(function(err){ console.warn('Rating fetch failed:', err); });
+})();
+</script>
   <script defer src="nav.js"></script>
   <script>
     (function(){
@@ -601,5 +674,9 @@
     })();
   </script>
 
+  <div class="mobile-cta-bar">
+    <a class="mobile-cta-bar__link mobile-cta-bar__book" href="book.html">Book Now</a>
+    <a class="mobile-cta-bar__link mobile-cta-bar__call" href="tel:2086143414">Call 208-614-3414</a>
+  </div>
 </body>
 </html>

@@ -10,11 +10,11 @@
   <meta property="og:title" content="Contact The Lightsmith">
   <meta property="og:description" content="Request an appointment or ask a question about headlight restoration services.">
   <meta property="og:url" content="https://lightsmith.llc/contact.html">
-  <meta property="og:image" content="https://lightsmith.llc/bigfoot-driving-social-preview-for-web.jpg">
+  <meta property="og:image" content="https://lightsmith.llc/images/social-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact The Lightsmith">
   <meta name="twitter:description" content="Mobile headlight restoration booking and questions.">
-  <meta name="twitter:image" content="https://lightsmith.llc/bigfoot-driving-social-preview-for-web.jpg">
+  <meta name="twitter:image" content="https://lightsmith.llc/images/social-preview.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
@@ -26,6 +26,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1990647455208218');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1990647455208218&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,26 +81,9 @@
   </div>
 
   <div class="form-row">
-    <label for="subject">Subject</label>
-    <input id="subject" name="subject" type="text" required>
-  </div>
-
-  <div class="form-row">
     <label for="preferred-date">Preferred appointment date <span class="muted">(optional)</span></label>
     <input id="preferred-date" name="preferred_date" type="date">
     <p class="small-hint">Choose the day that works best for you; we&rsquo;ll confirm availability.</p>
-  </div>
-
-  <div class="form-row">
-    <label for="preferred-window">Preferred time window <span class="muted">(optional)</span></label>
-    <select id="preferred-window" name="preferred_time">
-      <option value="">Any time works</option>
-      <option value="8am-10am">Morning (8&ndash;10am)</option>
-      <option value="10am-12pm">Late morning (10am&ndash;Noon)</option>
-      <option value="12pm-3pm">Afternoon (Noon&ndash;3pm)</option>
-      <option value="3pm-6pm">Late afternoon (3&ndash;6pm)</option>
-      <option value="evening">Evening</option>
-    </select>
   </div>
 
   <div class="form-row">
@@ -91,11 +91,8 @@
     <textarea id="message" name="message" rows="6" required></textarea>
   </div>
 
-  <div class="form-row">
-    <label for="file">Attach photos or PDFs (Under Maintenance) <span class="muted">(optional)</span></label>
-    <input id="file" name="attachments[]" type="file" accept="image/*,application/pdf" multiple>
-    <p class="small-hint">Hold Ctrl (Windows) or Command (&#8984;) on Mac while clicking to select more than one file.</p>
-  </div>
+  <!-- Honeypot spam trap — must stay hidden -->
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
 
   <p class="form-status is-hidden" id="contactFormStatus" role="status" aria-live="polite"></p>
 
@@ -104,41 +101,6 @@
     <span>Send Message</span>
   </button>
 </form>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  
-  const form = this;
-  const formData = new FormData(form);
-
-  // Add secret for server-side auth
-  formData.append("_secret", "bjk5342b25kjg2kj65gjk324h8");
-
-  // Your Apps Script Web App URL
-  const url = "https://script.google.com/macros/s/AKfycbxzvYFKZlYLWcwEp9GiNHiLn8lS2aYuuTAbmGC03JulRS8k_G57N77jwwPJcS05p2If/exec";
-
-  const statusEl = document.getElementById("contactFormStatus");
-  statusEl.classList.remove("is-hidden");
-  statusEl.style.color = "#555";
-  statusEl.textContent = "Sending...";
-
-  try {
-    const res = await fetch(url, { method: "POST", body: formData });
-    const data = await res.json();
-
-    if (data.status === "success") {
-      window.location.href = "/thank-you.html";
-    } else {
-      statusEl.textContent = "Error: " + (data.message || "Unknown error");
-      statusEl.style.color = "red";
-    }
-  } catch (err) {
-    statusEl.textContent = "Submission failed: " + err.message;
-    statusEl.style.color = "red";
-  }
-});
-</script>
 
     </section>
     
